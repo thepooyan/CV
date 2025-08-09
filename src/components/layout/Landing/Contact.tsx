@@ -10,6 +10,7 @@ import {
   Phone,
 } from "lucide-react"
 import Link from "next/link"
+import QuickMessage from "../QuickMessage"
 
 const Contact = () => {
   return (
@@ -57,35 +58,7 @@ const Contact = () => {
                   </Button>
                 </div>
               </div>
-              <Card className="p-8">
-                <h3 className="text-xl font-semibold mb-6">Quick Message</h3>
-                <form className="space-y-4">
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      className="w-full p-3 border border-input rounded-md bg-background"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      placeholder="Your Email"
-                      className="w-full p-3 border border-input rounded-md bg-background"
-                    />
-                  </div>
-                  <div>
-                    <textarea
-                      placeholder="Your Message"
-                      rows={4}
-                      className="w-full p-3 border border-input rounded-md bg-background resize-none"
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
-              </Card>
+              <QuickMessage/>
             </div>
           </div>
         </div>

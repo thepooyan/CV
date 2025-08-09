@@ -2,6 +2,7 @@ import { cn, getFullName } from "@/lib/utils";
 import ThemeToggler from "../parts/ThemeToggler";
 import Link from "next/link";
 import { LucideGlobe } from "lucide-react";
+import { Button } from "../ui/button";
 
 const Navigation = () => {
   return (
@@ -23,9 +24,11 @@ const Navigation = () => {
         </div>
         <div className="space-x-2">
           <ThemeToggler/>
-          <Link href="/fa" className="border-1 border-black dark:border-white inline-flex items-center rounded-md p-1 gap-2">
-            <LucideGlobe/>
-            fa
+          <Link href="/fa">
+            <Button variant="secondary">
+              <LucideGlobe/>
+              fa
+            </Button>
           </Link>
         </div>
       </div>

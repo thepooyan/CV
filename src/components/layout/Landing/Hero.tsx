@@ -7,12 +7,12 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden mt-17"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 text-center relative z-10 mt-15">
         <div className="animate-fade-in-up">
-          <Avatar className="w-32 h-32 mx-auto mb-8 ring-4 ring-primary/20 transition-transform hover:scale-105">
+          <Avatar className="w-32 h-32 mx-auto mb-4 ring-4 ring-primary/20 transition-transform hover:scale-105">
             <AvatarImage
               src="/me.webp?height=128&width=128"
               alt="Profile"
@@ -45,7 +45,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 animate-bounce">
         <ChevronDown className="h-6 w-6 text-muted-foreground" />
       </div>
     </section>

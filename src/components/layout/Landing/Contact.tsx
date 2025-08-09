@@ -7,6 +7,7 @@ import {
   Linkedin,
   Mail,
   MessageCircle,
+  Phone,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -24,6 +25,12 @@ const Contact = () => {
                   question or just want to say hi, feel free to reach out!
                 </p>
                 <div className="space-y-4">
+                  <Button variant="outline" size="lg" asChild className="w-full justify-start bg-transparent">
+                    <Link href={`call:${STATIC.mobile}`}>
+                      <Phone className="w-5 h-5 mr-3" />
+                      {STATIC.mobile}
+                    </Link>
+                  </Button>
                   <Button variant="outline" size="lg" asChild className="w-full justify-start bg-transparent">
                     <Link href="mailto:john@example.com">
                       <Mail className="w-5 h-5 mr-3" />

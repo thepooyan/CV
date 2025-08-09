@@ -23,7 +23,7 @@ const Navigation = () => {
         </div>
         <div className="space-x-2">
           <ThemeToggler/>
-          <Link href="/fa" className="border-1 border-black dark:hidden dark:border-white inline-flex items-center rounded-md p-1 gap-2">
+          <Link href="/fa" className="border-1 border-black dark:border-white inline-flex items-center rounded-md p-1 gap-2">
             <LucideGlobe/>
             fa
           </Link>

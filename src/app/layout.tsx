@@ -22,7 +22,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true} themes={["light", "dark"]}>
-          {children}
+          <div className="min-h-screen bg-background">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -3,13 +3,14 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "@/app/globals.css"
 import { STATIC } from "@/lib/static"
+import { getFullName } from "@/lib/utils"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: `${STATIC.name} ${STATIC.lastName} - Fullstack Developer`,
   description:
-    "Portfolio website of John Developer, a passionate fullstack developer specializing in modern web technologies.",
+    `Portfolio website of ${getFullName()}, a passionate fullstack developer specializing in modern web technologies.`,
 }
 
 export default function RootLayout({

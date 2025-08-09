@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { STATIC } from "./static"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -13,3 +14,5 @@ export const toggleDarkMode = () => {
     else
   document.documentElement.classList.add("dark")
 }
+
+export const getFullName = () => STATIC.name + " " + STATIC.lastName

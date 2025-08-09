@@ -1,13 +1,11 @@
-import { Moon, Sun } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn, getFullName } from "@/lib/utils";
 import ThemeToggler from "../parts/ThemeToggler";
 
 const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b z-50 transition-all duration-300">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="font-bold text-xl">John Developer</div>
+        <div className="font-bold text-xl">{getFullName()}</div>
         <div className="hidden md:flex space-x-6">
           {["About", "Skills", "Projects", "Blog", "Contact"].map((item) => (
             <button

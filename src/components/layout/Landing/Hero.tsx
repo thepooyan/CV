@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { getFullName } from "@/lib/utils";
 
 const Hero = () => {
   return (
@@ -19,7 +20,7 @@ const Hero = () => {
             <AvatarFallback>JD</AvatarFallback>
           </Avatar>
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            John Developer
+            {getFullName()} 
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Fullstack Developer crafting digital experiences with modern

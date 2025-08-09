@@ -1,8 +1,11 @@
 import { Card } from "@/components/ui/card"
 import {
+    Binary,
   Code,
   Database,
+  FileQuestion,
   Globe,
+  Pen,
 } from "lucide-react"
 import { skillsData } from "@/lib/data"
 
@@ -18,7 +21,9 @@ const Skills = () => {
                   <div key={category} className="space-y-3">
                     <h3 className="text-lg font-semibold text-primary flex items-center">
                       {category === "Frontend" && <Code className="w-4 h-4 mr-2" />}
-                      {category === "Backend" && <Database className="w-4 h-4 mr-2" />}
+                      {category === "Backend" && <Binary className="w-4 h-4 mr-2" />}
+                      {category === "Styling" && <Pen className="w-4 h-4 mr-2" />}
+                      {category === "More" && <FileQuestion className="w-4 h-4 mr-2" />}
                       {category === "Database" && <Database className="w-4 h-4 mr-2" />}
                       {category === "DevOps & Cloud" && <Globe className="w-4 h-4 mr-2" />}
                       {category}

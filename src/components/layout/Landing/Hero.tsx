@@ -14,10 +14,10 @@ const Hero = () => {
         <div className="animate-fade-in-up">
           <Avatar className="w-32 h-32 mx-auto mb-8 ring-4 ring-primary/20 transition-transform hover:scale-105">
             <AvatarImage
-              src="/placeholder.svg?height=128&width=128"
+              src="/me.webp?height=128&width=128"
               alt="Profile"
             />
-            <AvatarFallback>JD</AvatarFallback>
+            <AvatarFallback>PS</AvatarFallback>
           </Avatar>
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             {getFullName()} 

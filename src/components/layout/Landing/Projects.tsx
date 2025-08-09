@@ -7,6 +7,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { projects } from "@/lib/data"
+import { cn } from "@/lib/utils"
 
 const Projects = () => {
   return (
@@ -32,7 +33,8 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="flex gap-2 mt-auto">
-                    <Button size="sm" asChild className="flex-1">
+                    <Button size="sm" asChild className={cn("flex-1",
+                      project.link === "" && "pointer-events-none opacity-30")}>
                       <Link href={project.link} target="_blank">
                         <ExternalLink className="w-4 h-4 mr-2" />
                         {project.isDemo ? "Live Demo" : "Live Website"}

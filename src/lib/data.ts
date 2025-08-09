@@ -55,19 +55,28 @@ export const projects = [
     link: "https://trustysci.com/",
   },
   {
+    title: "Tahlildadeh Academy",
+    description: "Coding Academy website",
+    tech: ["SASS", "HTML", "Pure js", ".Net Razor Pages"],
+    link: "https://tahlildadeh.com/",
+  },
+  {
     title: "Invoice creation app",
     description: "Hobby project, for creating and sharing invoices easily",
     tech: ["Solid.js", "UnoCSS", "shadcn", "Python", "FastAPI"],
     link: "https://factor-coral.vercel.app",
     github: "https://github.com/thepooyan/factor",
-    isDemo: true
+    isDemo: true,
+    isHobby: true
   },
   {
-    title: "Analytics Dashboard",
-    description: "Data visualization dashboard for business metrics",
-    tech: ["Vue.js", "D3.js", "Python", "FastAPI"],
-    link: "https://example-analytics.com",
-    github: "https://github.com/username/analytics",
+    title: "Private Room",
+    description: "A Hobby chating website, with Crypto encryption",
+    tech: ["Solid.js", "Pocketbase", "shadcn", "TailwindCSS", "WebCryptoAPI"],
+    link: "",
+    github: "https://github.com/thepooyan/private-room",
+    isDemo: true,
+    isHobby: true
   },
 ];
 

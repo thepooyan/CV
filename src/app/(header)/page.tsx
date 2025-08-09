@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
 import {
   Github,
@@ -21,6 +20,8 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { blogPosts, projects, skillsData } from "@/lib/data"
+import Hero from "@/components/layout/Landing/Hero"
+import About from "@/components/layout/Landing/About"
 
 export default function CVWebsite() {
   const [mounted, setMounted] = useState(false)
@@ -60,94 +61,9 @@ export default function CVWebsite() {
 
   return (
     <>
+      <Hero/>
 
-      {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="animate-fade-in-up">
-            <Avatar className="w-32 h-32 mx-auto mb-8 ring-4 ring-primary/20 transition-transform hover:scale-105">
-              <AvatarImage src="/placeholder.svg?height=128&width=128" alt="Profile" />
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              John Developer
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Fullstack Developer crafting digital experiences with modern technologies
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <Button size="lg" onClick={() => scrollToSection("projects")} className="group">
-                View My Work
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outline" size="lg" onClick={() => scrollToSection("contact")}>
-                Get In Touch
-              </Button>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-6 w-6 text-muted-foreground" />
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">About Me</h2>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  I'm a passionate fullstack developer with over 5 years of experience building scalable web
-                  applications. I love turning complex problems into simple, beautiful designs.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  When I'm not coding, you can find me exploring new technologies, contributing to open source projects,
-                  or sharing my knowledge through blog posts and community involvement.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Badge variant="secondary" className="px-3 py-1">
-                    <Code className="w-4 h-4 mr-2" />
-                    5+ Years Experience
-                  </Badge>
-                  <Badge variant="secondary" className="px-3 py-1">
-                    <Globe className="w-4 h-4 mr-2" />
-                    Remote Friendly
-                  </Badge>
-                  <Badge variant="secondary" className="px-3 py-1">
-                    <Database className="w-4 h-4 mr-2" />
-                    Full Stack
-                  </Badge>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg transform rotate-3" />
-                <Card className="relative transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold mb-4">Quick Facts</h3>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full" />
-                        <span>Based in San Francisco, CA</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full" />
-                        <span>Available for freelance work</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full" />
-                        <span>Open to remote opportunities</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <About/>
 
       {/* Skills Section */}
       <section id="skills" className="py-16">

@@ -23,6 +23,7 @@ import {
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import Link from "next/link"
+import { blogPosts, projects, skillsData } from "@/lib/data"
 
 export default function CVWebsite() {
   const { theme, setTheme } = useTheme()
@@ -53,82 +54,6 @@ export default function CVWebsite() {
   }, [])
 
   if (!mounted) return null
-
-  const skillsData = {
-    Frontend: [
-      { name: "React", level: 95 },
-      { name: "Next.js", level: 90 },
-      { name: "TypeScript", level: 88 },
-      { name: "Vue.js", level: 75 },
-      { name: "Tailwind CSS", level: 85 },
-    ],
-    Backend: [
-      { name: "Node.js", level: 85 },
-      { name: "Python", level: 82 },
-      { name: "Express.js", level: 80 },
-      { name: "FastAPI", level: 75 },
-      { name: "GraphQL", level: 72 },
-    ],
-    Database: [
-      { name: "PostgreSQL", level: 80 },
-      { name: "MongoDB", level: 78 },
-      { name: "Redis", level: 70 },
-      { name: "Prisma", level: 75 },
-    ],
-    "DevOps & Cloud": [
-      { name: "AWS", level: 75 },
-      { name: "Docker", level: 70 },
-      { name: "Vercel", level: 85 },
-      { name: "GitHub Actions", level: 68 },
-    ],
-  }
-
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration",
-      tech: ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
-      link: "https://example-ecommerce.com",
-      github: "https://github.com/username/ecommerce",
-    },
-    {
-      title: "Task Management App",
-      description: "Collaborative project management tool with real-time updates",
-      tech: ["React", "Socket.io", "Express", "MongoDB"],
-      link: "https://example-tasks.com",
-      github: "https://github.com/username/task-app",
-    },
-    {
-      title: "Analytics Dashboard",
-      description: "Data visualization dashboard for business metrics",
-      tech: ["Vue.js", "D3.js", "Python", "FastAPI"],
-      link: "https://example-analytics.com",
-      github: "https://github.com/username/analytics",
-    },
-  ]
-
-  const blogPosts = [
-    {
-      title: "Building Scalable React Applications",
-      excerpt:
-        "Best practices for structuring large React applications with proper state management and component architecture.",
-      date: "2024-01-15",
-      readTime: "8 min read",
-    },
-    {
-      title: "Modern Backend Development with Node.js",
-      excerpt:
-        "Exploring the latest trends in Node.js development including microservices and serverless architectures.",
-      date: "2024-01-08",
-      readTime: "6 min read",
-    },
-    {
-      title: "Database Design Patterns",
-      excerpt: "Common database design patterns and when to use them in your applications.",
-      date: "2024-01-01",
-      readTime: "10 min read",
-    },
-  ]
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -309,7 +234,7 @@ export default function CVWebsite() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Featured Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
+            {projects.map((project,) => (
               <Card
                 key={project.title}
                 className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
@@ -351,7 +276,7 @@ export default function CVWebsite() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Latest Blog Posts</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {blogPosts.map((post, index) => (
+            {blogPosts.map((post) => (
               <Card
                 key={post.title}
                 className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"

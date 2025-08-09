@@ -3,11 +3,12 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "next-themes"
+import { STATIC } from "@/lib/static"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "John Developer - Fullstack Developer",
+  title: `${STATIC.name} ${STATIC.lastName} - Fullstack Developer`,
   description:
     "Portfolio website of John Developer, a passionate fullstack developer specializing in modern web technologies.",
 }

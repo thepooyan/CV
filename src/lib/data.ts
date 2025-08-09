@@ -1,3 +1,5 @@
+import { isDeepStrictEqual } from "util";
+
 export const skillsData = {
   Frontend: [
     { name: "React", level: 95 },
@@ -39,18 +41,26 @@ export const skillsData = {
 
 export const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with payment integration",
-    tech: ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
-    link: "https://example-ecommerce.com",
-    github: "https://github.com/username/ecommerce",
+    title: "Hooshban",
+    description: "Full-stack Branding website with AI features",
+    tech: ["Solid.js", "Drizzle","TailwindCSS", "shadcn", "Chat interface"],
+    link: "https://brand-amber.vercel.app/",
+    github: "https://github.com/thepooyan/brand.git",
+    isDemo: true
   },
   {
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates",
-    tech: ["React", "Socket.io", "Express", "MongoDB"],
-    link: "https://example-tasks.com",
-    github: "https://github.com/username/task-app",
+    title: "Trusty.sci",
+    description: "Educational article sharing with tons of features",
+    tech: ["Next.js", "Stripe", "NextUI", "TailwindCSS", ".Net rest api"],
+    link: "https://trustysci.com/",
+  },
+  {
+    title: "Invoice creation app",
+    description: "Hobby project, for creating and sharing invoices easily",
+    tech: ["Solid.js", "UnoCSS", "shadcn", "Python", "FastAPI"],
+    link: "https://factor-coral.vercel.app",
+    github: "https://github.com/thepooyan/factor",
+    isDemo: true
   },
   {
     title: "Analytics Dashboard",

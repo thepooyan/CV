@@ -1,5 +1,7 @@
+import BsTelegram from "@/components/icons/Telegram"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { STATIC } from "@/lib/static"
 import {
   Github,
   Linkedin,
@@ -25,23 +27,23 @@ const Contact = () => {
                   <Button variant="outline" size="lg" asChild className="w-full justify-start bg-transparent">
                     <Link href="mailto:john@example.com">
                       <Mail className="w-5 h-5 mr-3" />
-                      john@example.com
+                      {STATIC.email}
                     </Link>
                   </Button>
                   <Button variant="outline" size="lg" asChild className="w-full justify-start bg-transparent">
-                    <Link href="https://t.me/johndeveloper" target="_blank">
-                      <MessageCircle className="w-5 h-5 mr-3" />
-                      @johndeveloper
+                    <Link href={STATIC.telegram} target="_blank">
+                      <BsTelegram className="w-5 h-5 mr-3"/>
+                      {STATIC.telegram}
                     </Link>
                   </Button>
                   <Button variant="outline" size="lg" asChild className="w-full justify-start bg-transparent">
-                    <Link href="https://github.com/johndeveloper" target="_blank">
+                    <Link href={STATIC.github} target="_blank">
                       <Github className="w-5 h-5 mr-3" />
                       GitHub Profile
                     </Link>
                   </Button>
                   <Button variant="outline" size="lg" asChild className="w-full justify-start bg-transparent">
-                    <Link href="https://linkedin.com/in/johndeveloper" target="_blank">
+                    <Link href={STATIC.linkedIn} target="_blank">
                       <Linkedin className="w-5 h-5 mr-3" />
                       LinkedIn Profile
                     </Link>

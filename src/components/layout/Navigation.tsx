@@ -10,7 +10,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="font-bold text-xl">{getFullName()}</div>
         <div className="hidden md:flex space-x-6">
-          {["About", "Skills", "Projects", "Blog", "Contact"].map((item) => (
+          {["About", "Skills", "Projects", "Contact"].map((item) => (
             <button
               key={item}
               // onClick={() => scrollToSection(item.toLowerCase())}

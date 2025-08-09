@@ -1,5 +1,7 @@
 import { cn, getFullName } from "@/lib/utils";
 import ThemeToggler from "../parts/ThemeToggler";
+import Link from "next/link";
+import { LucideGlobe } from "lucide-react";
 
 const Navigation = () => {
   return (
@@ -19,7 +21,13 @@ const Navigation = () => {
             </button>
           ))}
         </div>
-        <ThemeToggler/>
+        <div className="space-x-2">
+          <ThemeToggler/>
+          <Link href="/fa" className="border-1 border-black dark:hidden dark:border-white inline-flex items-center rounded-md p-1 gap-2">
+            <LucideGlobe/>
+            fa
+          </Link>
+        </div>
       </div>
     </nav>
   );

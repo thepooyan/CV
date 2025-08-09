@@ -45,7 +45,7 @@ const About = () => {
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full" />
-                        <span>Based in San Francisco, CA</span>
+                        <span>Based in Tehran</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full" />

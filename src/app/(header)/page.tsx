@@ -16,17 +16,13 @@ import {
   Globe,
   Calendar,
   MessageCircle,
-  Moon,
-  Sun,
   ChevronDown,
   ArrowRight,
 } from "lucide-react"
-import { useTheme } from "next-themes"
 import Link from "next/link"
 import { blogPosts, projects, skillsData } from "@/lib/data"
 
 export default function CVWebsite() {
-  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
 

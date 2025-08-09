@@ -1,10 +1,8 @@
 import { Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
-import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
-  const {setTheme, theme} = useTheme()
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b z-50 transition-all duration-300">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -25,10 +23,10 @@ const Navigation = () => {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => {
-            const newTheme = theme === "dark" ? "light" : "dark";
-            setTheme(newTheme);
-          }}
+          // onClick={() => {
+          //   const newTheme = theme === "dark" ? "light" : "dark";
+          //   setTheme(newTheme);
+          // }}
           className="transition-transform hover:scale-110"
           suppressHydrationWarning
         >

@@ -18,7 +18,7 @@ const Projects = () => {
             {projects.map((project,) => (
               <Card
                 key={project.title}
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-60"
+                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-60 relative"
               >
                 <CardHeader>
                   <CardTitle className="group-hover:text-primary transition-colors mb-1">{project.title}</CardTitle>

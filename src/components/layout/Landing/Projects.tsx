@@ -23,7 +23,7 @@ const Projects = () => {
                 <CardHeader>
                   <CardTitle className="group-hover:text-primary transition-colors mb-1">{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
-                  {project.isHobby && <Badge className="absolute -right-2 -top-3 rotate-45 bg-green-300">Hobby</Badge>}
+                  {project.isHobby && <Badge className="absolute -right-2 -top-3 rotate-45 bg-green-300 text-black ">Hobby</Badge>}
                 </CardHeader>
                 <CardContent className="mt-auto">
                   <div className="flex flex-wrap gap-2 mb-4">

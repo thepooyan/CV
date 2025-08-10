@@ -25,7 +25,7 @@ const Navigation = () => {
         <div className="space-x-2">
           <ThemeToggler/>
           <Link href="/fa">
-            <Button variant="secondary">
+            <Button variant="ghost" className="text-sm">
               <LucideGlobe/>
               fa
             </Button>

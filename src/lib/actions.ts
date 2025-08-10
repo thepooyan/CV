@@ -2,6 +2,8 @@
 
 import { db } from "@/db"
 import { messagesTable } from "@/db/schema"
+import { sendToAdmin } from "./telegram"
+import { formatMessage } from "./utils"
 
 export async function sendMessage(name: string, email: string, msg: string) {
 
@@ -13,7 +15,9 @@ export async function sendMessage(name: string, email: string, msg: string) {
 
   try {
     await db.insert(messagesTable).values(values)
-  } catch(_) {
+    await sendToAdmin(formatMessage(name, email, msg))
+  } catch(e) {
+    console.log(e)
     return { ok: false, msg: "Something went wrong. please try again."}
   }
 

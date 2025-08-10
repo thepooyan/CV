@@ -2,7 +2,7 @@ export const STATIC = {
   name: "Pooyan",
   lastName: "Salmani",
   email: "thepooyan@gmail.com",
-  mobile: "+98-902-7766-926",
+  mobile: "+989027766926",
   github: "https://github.com/thepooyan/",
   telegram: "https://t.me/thepooyan",
   whatsapp: "+989027766926",

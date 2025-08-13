@@ -12,7 +12,7 @@ const ScrollerBtn = ({children, to}:props) => {
   const scroll = useScroller(to)
 
   return (
-    <div onClick={scroll}>
+    <div onClick={scroll.scroll}>
       {children}
     </div>
   )

@@ -19,3 +19,23 @@ export const getFullName = () => STATIC.name + " " + STATIC.lastName
 
 export const formatMessage = (name: string, email: string, msg: string) => `name: ${name}\nemail: ${email}\n\n${msg}`
 
+export function respondToVisibility(
+  element: Element,
+  onEnter: (el: Element) => void,
+  onLeave?: (el: Element) => void,
+  options: IntersectionObserverInit = {}
+): () => void {
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        onEnter(entry.target)
+      } else {
+        onLeave?.(entry.target)
+      }
+    }
+  }, options)
+
+  observer.observe(element)
+
+  return () => observer.unobserve(element)
+}

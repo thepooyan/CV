@@ -20,7 +20,7 @@ const Navigation = () => {
           {["About", "Skills", "Projects", "Contact"].map((item) => (
             <button
               key={item}
-              onClick={() => scrollTo[item as keyof typeof scrollTo]()}
+              onClick={() => scrollTo[item as keyof typeof scrollTo].scroll()}
               className={cn(`text-sm font-medium transition-colors hover:text-primary text-muted-foreground cursor-pointer`,
               false && "text-primary"
               )}

@@ -1,14 +1,25 @@
-"use client"
-import { useEffect } from "react"
+"use client";
+import { useEffect, useState } from "react";
+import { respondToVisibility } from "./utils";
 
 export const useScroller = (to: string) => {
-  let element:Element | null = null
+  const [isSeen, setIsSeen] = useState(false);
+  let element: Element | null = null;
   useEffect(() => {
-    element = document.querySelector(to)
-  })
+    element = document.querySelector(to);
+    if (!element) throw new Error(`useScroller: Element not found: ${to}`);
+    respondToVisibility(
+      element,
+      () => setIsSeen(true),
+      () => setIsSeen(false),
+    );
+  });
 
-  return () => {
-    if (!element) return
-    element.scrollIntoView({behavior: "smooth"})
-  }
-}
+  return {
+    scroll: () => {
+      if (!element) throw new Error(`useScroller: Element not found: ${to}`);
+      element.scrollIntoView({ behavior: "smooth" });
+    },
+    isSeen,
+  };
+};

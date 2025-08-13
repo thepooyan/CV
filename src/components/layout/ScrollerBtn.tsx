@@ -1,6 +1,7 @@
 "use client"
 
-import { ReactNode, useEffect } from "react"
+import { useScroller } from "@/lib/Hooks"
+import { ReactNode } from "react"
 
 interface props {
 children:ReactNode,
@@ -8,15 +9,7 @@ children:ReactNode,
 }
 const ScrollerBtn = ({children, to}:props) => {
 
-  let element:Element | null = null
-  useEffect(() => {
-    element = document.querySelector(to)
-  })
-
-  const scroll = () => {
-    if (!element) return
-    element.scrollIntoView({behavior: "smooth"})
-  }
+  const scroll = useScroller(to)
 
   return (
     <div onClick={scroll}>

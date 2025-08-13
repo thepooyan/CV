@@ -18,3 +18,4 @@ export const toggleDarkMode = () => {
 export const getFullName = () => STATIC.name + " " + STATIC.lastName
 
 export const formatMessage = (name: string, email: string, msg: string) => `name: ${name}\nemail: ${email}\n\n${msg}`
+

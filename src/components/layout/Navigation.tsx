@@ -5,7 +5,7 @@ import { useScroller } from "@/lib/Hooks";
 
 const Navigation = () => {
 
-  let scroll = {
+  let scrollTo = {
     About:  useScroller("#about"),
     Skills: useScroller("#skills"),
     Projects: useScroller("#projects"),
@@ -20,7 +20,7 @@ const Navigation = () => {
           {["About", "Skills", "Projects", "Contact"].map((item) => (
             <button
               key={item}
-              onClick={() => scroll[item as keyof typeof scroll]()}
+              onClick={() => scrollTo[item as keyof typeof scrollTo]()}
               className={cn(`text-sm font-medium transition-colors hover:text-primary text-muted-foreground`,
               false && "text-primary"
               )}

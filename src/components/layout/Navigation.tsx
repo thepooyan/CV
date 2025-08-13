@@ -21,7 +21,7 @@ const Navigation = () => {
             <button
               key={item}
               onClick={() => scrollTo[item as keyof typeof scrollTo]()}
-              className={cn(`text-sm font-medium transition-colors hover:text-primary text-muted-foreground`,
+              className={cn(`text-sm font-medium transition-colors hover:text-primary text-muted-foreground cursor-pointer`,
               false && "text-primary"
               )}
             >

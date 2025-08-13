@@ -12,6 +12,7 @@ export const useScroller = (to: string) => {
       element,
       () => setIsSeen(true),
       () => setIsSeen(false),
+      -500
     );
   });
 

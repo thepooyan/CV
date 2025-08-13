@@ -23,7 +23,8 @@ export function respondToVisibility(
   element: Element,
   onEnter: (el: Element) => void,
   onLeave?: (el: Element) => void,
-  options: IntersectionObserverInit = {}
+  offset: number = 0,
+  options: Omit<IntersectionObserverInit, 'rootMargin'> = {}
 ): () => void {
   const observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
@@ -33,9 +34,13 @@ export function respondToVisibility(
         onLeave?.(entry.target)
       }
     }
-  }, options)
+  }, {
+    rootMargin: `${offset}px 0px ${offset}px 0px`,
+    ...options
+  })
 
   observer.observe(element)
 
   return () => observer.unobserve(element)
 }
+

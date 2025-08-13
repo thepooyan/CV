@@ -5,7 +5,10 @@ import { useScroller } from "@/lib/Hooks";
 
 const Navigation = () => {
 
-  let scrollTo = {
+  type section = "About" | "Skills" | "Contact" | "Projects"
+  const sections:section[] = ["About", "Skills", "Projects", "Contact"];
+
+  let scrollTo:Record<section, ReturnType<typeof useScroller>> = {
     About:  useScroller("#about"),
     Skills: useScroller("#skills"),
     Projects: useScroller("#projects"),
@@ -17,12 +20,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="font-bold text-xl">{getFullName()}</div>
         <div className="hidden md:flex space-x-6">
-          {["About", "Skills", "Projects", "Contact"].map((item) => (
+          {sections.map((item) => (
             <button
               key={item}
-              onClick={() => scrollTo[item as keyof typeof scrollTo].scroll()}
+              onClick={() => scrollTo[item].scroll()}
               className={cn(`text-sm font-medium transition-colors hover:text-primary text-muted-foreground cursor-pointer`,
-              false && "text-primary"
+              scrollTo[item].isSeen && "text-primary"
               )}
             >
               {item}

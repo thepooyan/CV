@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "@/app/globals.css"
 import { STATIC } from "@/lib/static"
+import { GoogleTagManager } from '@next/third-parties/google'
 import { getFullName } from "@/lib/utils"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -25,6 +26,7 @@ export default function RootLayout({
           {children}
         </div>
       </body>
+      <GoogleTagManager gtmId="GTM-KS6XFX2S" />
     </html>
   )
 }

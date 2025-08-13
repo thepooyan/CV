@@ -43,7 +43,7 @@ const Projects = () => {
                     </Button>
                     {project.github && 
                       <Button size="sm" variant="outline" asChild>
-                        <Link href={project.github} target="_blank">
+                        <Link href={project.github} target="_blank" aria-label={`open github repository: ${project.title}`}>
                           <Github className="w-4 h-4" />
                         </Link>
                       </Button>}

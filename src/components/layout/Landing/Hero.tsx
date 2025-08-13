@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getFullName } from "@/lib/utils";
+import ScrollerBtn from "../ScrollerBtn";
 
 const Hero = () => {
   return (
@@ -27,21 +28,24 @@ const Hero = () => {
             technologies
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <Button
-              size="lg"
-              // onClick={() => scrollToSection("projects")}
-              className="group"
-            >
-              View My Work
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              // onClick={() => scrollToSection("contact")}
-            >
-              Get In Touch
-            </Button>
+            <ScrollerBtn to="#projects">
+              <Button
+                size="lg"
+                className="group"
+              >
+                View My Work
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </ScrollerBtn>
+            <ScrollerBtn to="#contact">
+              <Button
+                variant="outline"
+                size="lg"
+                // onClick={() => scrollToSection("contact")}
+              >
+                Get In Touch
+              </Button>
+            </ScrollerBtn>
           </div>
         </div>
       </div>

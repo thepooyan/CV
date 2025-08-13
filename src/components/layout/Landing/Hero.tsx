@@ -49,9 +49,11 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="h-6 w-6 text-muted-foreground" />
-      </div>
+      <ScrollerBtn to="#about">
+        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+          <ChevronDown className="h-6 w-6 text-muted-foreground" />
+        </div>
+      </ScrollerBtn>
     </section>
   );
 };

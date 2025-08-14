@@ -106,7 +106,7 @@ function ProjectCard({ project }:props) {
                 <Button size="sm" asChild className="flex-1">
                   <Link href={project.link} target="_blank">
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
+                    {project.isDemo ? "Live Demo" : "Live Website"}
                   </Link>
                 </Button>
                 {project.github && 
@@ -316,7 +316,7 @@ function ProjectCard({ project }:props) {
                 >
                   <Link href={project.link} target="_blank">
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
+                    {project.isDemo ? "Live Demo" : "Live Website"}
                   </Link>
                 </Button>
                 <Button

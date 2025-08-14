@@ -1,3 +1,4 @@
+import { project } from "@/components/parts/ProjectCard";
 import { isDeepStrictEqual } from "util";
 
 export const skillsData = {
@@ -39,26 +40,41 @@ export const skillsData = {
   ],
 };
 
-export const projects = [
+export const projects:project[] = [
   {
     title: "Hooshban",
     description: "Full-stack Branding website with AI features",
     tech: ["Solid.js", "Drizzle","TailwindCSS", "shadcn", "Chat interface"],
     link: "https://brand-amber.vercel.app/",
     github: "https://github.com/thepooyan/brand.git",
-    isDemo: true
+    isDemo: true,
+    importantPages: [],
+    lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
+    features: [],
+    challenges: [],
+    image: "",
   },
   {
     title: "Trusty.sci",
     description: "Educational article sharing with tons of features",
     tech: ["Next.js", "Stripe", "NextUI", "TailwindCSS", ".Net rest api"],
     link: "https://trustysci.com/",
+    importantPages: [],
+    lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
+    features: [],
+    challenges: [],
+    image: "",
   },
   {
     title: "Tahlildadeh Academy",
     description: "Coding Academy website",
     tech: ["SASS", "HTML", "Pure js", ".Net Razor Pages"],
     link: "https://tahlildadeh.com/",
+    importantPages: [],
+    lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
+    features: [],
+    challenges: [],
+    image: "",
   },
   {
     title: "Invoice creation app",
@@ -67,7 +83,12 @@ export const projects = [
     link: "https://factor-coral.vercel.app",
     github: "https://github.com/thepooyan/factor",
     isDemo: true,
-    isHobby: true
+    isHobby: true,
+    importantPages: [],
+    lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
+    features: [],
+    challenges: [],
+    image: "",
   },
   {
     title: "Private Room",
@@ -76,7 +97,12 @@ export const projects = [
     link: "",
     github: "https://github.com/thepooyan/private-room",
     isDemo: true,
-    isHobby: true
+    isHobby: true,
+    importantPages: [],
+    lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
+    features: [],
+    challenges: [],
+    image: "",
   },
 ];
 

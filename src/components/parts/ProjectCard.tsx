@@ -1,3 +1,4 @@
+"use client"
 import { useRef, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
 import { Badge } from "../ui/badge"
@@ -5,15 +6,13 @@ import { Button } from "../ui/button"
 import Link from "next/link"
 import { ChevronDown, Code, Database, ExternalLink, Github, Globe } from "lucide-react"
 
-interface project {
+export interface project {
   title: string
   description: string
   tech: string[]
   importantPages: {url: string, name: string}[]
   features: {title: string, description: string}[]
   challenges: {title: string, description: string}[]
-  link: string
-  github: string
   image: string
   lighthouseScore:
   {
@@ -22,6 +21,10 @@ interface project {
     bestPractices: number
     seo: number
   }
+  isDemo?: boolean,
+  isHobby?: boolean
+  link: string
+  github?: string
 }
 
 interface props {
@@ -106,11 +109,12 @@ function ProjectCard({ project }:props) {
                     Live Demo
                   </Link>
                 </Button>
+                {project.github && 
                 <Button size="sm" variant="outline" asChild>
                   <Link href={project.github} target="_blank">
                     <Github className="w-4 h-4" />
                   </Link>
-                </Button>
+                </Button>}
               </div>
               <Button
                 variant="ghost"
@@ -324,10 +328,11 @@ function ProjectCard({ project }:props) {
                   }`}
                   style={{ transitionDelay: isExpanded ? "850ms" : "0ms" }}
                 >
+                  {project.github && 
                   <Link href={project.github} target="_blank">
                     <Github className="w-4 h-4 mr-2" />
                     Source Code
-                  </Link>
+                  </Link>}
                 </Button>
                 <Button
                   variant="ghost"

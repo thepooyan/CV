@@ -63,8 +63,30 @@ export const projects:project[] = [
       },
     ],
     lighthouseScore: {performance: 100, accessibility: 95, bestPractices: 96, seo: 100},
-    features: [],
-    challenges: [],
+    features: [
+      {
+        title: "AI chat",
+        description: "",
+      },
+      {
+        title: "Three animation libraries",
+        description: "",
+      },
+      {
+        title: "SSR rendering",
+        description: "",
+      },
+      {
+        title: "Telegram connection",
+        description: "",
+      },
+    ],
+    challenges: [
+      {
+        title: "Chat streaming",
+        description: "",
+      },
+    ],
     image: "/samples/Hooshban.webp",
   },
   {

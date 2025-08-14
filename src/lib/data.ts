@@ -48,7 +48,20 @@ export const projects:project[] = [
     link: "https://brand-amber.vercel.app/",
     github: "https://github.com/thepooyan/brand.git",
     isDemo: true,
-    importantPages: [],
+    importantPages: [
+      {
+        name: "Chat page",
+        url: "/services/ai/chat-bot/Demo",
+      },
+      {
+        name: "Login",
+        url: "/Login",
+      },
+      {
+        name: "Order",
+        url: "/Place-order/Website",
+      },
+    ],
     lighthouseScore: {performance: 100, accessibility: 95, bestPractices: 96, seo: 100},
     features: [],
     challenges: [],
@@ -59,7 +72,24 @@ export const projects:project[] = [
     description: "Educational article sharing with tons of features",
     tech: ["Next.js", "Stripe", "NextUI", "TailwindCSS", ".Net rest api"],
     link: "https://trustysci.com/",
-    importantPages: [],
+    importantPages: [
+      {
+        name: "Search",
+        url: "/Search?searchKeys=[0,1,2,3,4,5,6,7]&pageNumber=1&searchTerm=sanaat",
+      },
+      {
+        name: "Profile",
+        url: "/user/3/amirhossein-sanaat/submittedManuscripts",
+      },
+      {
+        name: "Discussion",
+        url: "/Manuscript/2/the-promise-of-artificial-intelligence-and-deep-learning-in-pet-and-spect-imaging",
+      },
+      {
+        name: "User Panel",
+        url: "/panel/RegisterReviewer",
+      },
+    ],
     lighthouseScore: {performance: 98, accessibility: 89, bestPractices: 100, seo: 82},
     features: [],
     challenges: [],

@@ -241,6 +241,7 @@ function ProjectCard({ project }:props) {
                   isExpanded ? "opacity-100 transform translate-x-0" : "opacity-0 transform -translate-x-4"
                 }`}
               >
+                {project.importantPages.length > 0 && <>
                 <h4 className="font-semibold mb-3 flex items-center">
                   <Globe
                     className={`w-4 h-4 mr-2 transition-all duration-500 delay-600 ${
@@ -263,13 +264,14 @@ function ProjectCard({ project }:props) {
                         transitionDelay: isExpanded ? `${700 + idx * 75}ms` : "0ms",
                       }}
                     >
-                      <Link href={page.url} target="_blank" className="justify-start">
+                      <Link href={project.link + page.url} target="_blank" className="justify-start">
                         <ExternalLink className="w-3 h-3 mr-2" />
                         {page.name}
                       </Link>
                     </Button>
                   ))}
                 </div>
+                </>}
               </div>
 
               <div

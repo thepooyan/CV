@@ -52,7 +52,7 @@ export const projects:project[] = [
     lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
     features: [],
     challenges: [],
-    image: "",
+    image: "/samples/Hooshban.webp",
   },
   {
     title: "Trusty.sci",
@@ -63,7 +63,7 @@ export const projects:project[] = [
     lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
     features: [],
     challenges: [],
-    image: "",
+    image: "/samples/trusty.webp",
   },
   {
     title: "Tahlildadeh Academy",
@@ -74,7 +74,7 @@ export const projects:project[] = [
     lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
     features: [],
     challenges: [],
-    image: "",
+    image: "/samples/Tahlildadeh.webp",
   },
   {
     title: "Invoice creation app",
@@ -88,7 +88,7 @@ export const projects:project[] = [
     lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
     features: [],
     challenges: [],
-    image: "",
+    image: "/samples/onetapfactor.webp",
   },
   {
     title: "Private Room",
@@ -102,7 +102,7 @@ export const projects:project[] = [
     lighthouseScore: {seo: 100, bestPractices: 100, performance: 100, accessibility: 100},
     features: [],
     challenges: [],
-    image: "",
+    image: "/samples/privateRoom.webp",
   },
 ];
 

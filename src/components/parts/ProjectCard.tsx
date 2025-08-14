@@ -174,6 +174,8 @@ function ProjectCard({ project }:props) {
                 </div>
               </div>
 
+              {project.features.length > 0 && <>
+
               <div
                 className={`transition-all duration-700 delay-300 ${
                   isExpanded ? "opacity-100 transform translate-x-0" : "opacity-0 transform translate-x-4"
@@ -205,6 +207,8 @@ function ProjectCard({ project }:props) {
                 </div>
               </div>
 
+              </>}
+              {project.challenges.length > 0 && <>
               <div
                 className={`transition-all duration-700 delay-400 ${
                   isExpanded ? "opacity-100 transform translate-x-0" : "opacity-0 transform -translate-x-4"
@@ -235,13 +239,13 @@ function ProjectCard({ project }:props) {
                   ))}
                 </div>
               </div>
-
+              </>}
+              {project.importantPages.length > 0 && <>
               <div
                 className={`transition-all duration-700 delay-500 ${
                   isExpanded ? "opacity-100 transform translate-x-0" : "opacity-0 transform -translate-x-4"
                 }`}
               >
-                {project.importantPages.length > 0 && <>
                 <h4 className="font-semibold mb-3 flex items-center">
                   <Globe
                     className={`w-4 h-4 mr-2 transition-all duration-500 delay-600 ${
@@ -271,8 +275,8 @@ function ProjectCard({ project }:props) {
                     </Button>
                   ))}
                 </div>
-                </>}
               </div>
+              </>}
 
               <div
                 className={`transition-all duration-700 delay-600 ${

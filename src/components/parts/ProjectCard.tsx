@@ -82,7 +82,7 @@ function ProjectCard({ project }:props) {
           isExpanded ? "scale-100 opacity-100" : "scale-100 opacity-100"
         }`}
       >
-        <CardHeader>
+        <CardHeader className="mb-4">
           <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
           <CardDescription>{project.description}</CardDescription>
         </CardHeader>

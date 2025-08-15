@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { STATIC } from "./static"
+import { lang, useTranslate } from "./translation"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -15,6 +16,10 @@ export const toggleDarkMode = () => {
   document.documentElement.classList.add("dark")
 }
 
+export const getDynamicName = (lang: lang) => {
+  const t = useTranslate(lang)
+  return t(getFullName(),getFullNameFa())
+}
 export const getFullName = () => STATIC.name + " " + STATIC.lastName;
 export const getFullNameFa = () => STATIC.nameFa + " " + STATIC.lastNameFa;
 

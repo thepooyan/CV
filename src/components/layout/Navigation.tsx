@@ -1,15 +1,21 @@
 "use client"
-import { cn, getFullName } from "@/lib/utils";
+import { cn, getDynamicName, getFullName } from "@/lib/utils";
 import ThemeToggler from "../parts/ThemeToggler";
 import { useScroller } from "@/lib/Hooks";
 import ScrollerBtn from "./ScrollerBtn";
 import ChangeLanguege from "../parts/ChangeLanguege";
-import { lang } from "@/lib/translation";
+import { lang, useTranslate } from "@/lib/translation";
 
 const Navigation = ({lang}:{lang: lang}) => {
 
   type section = "About" | "Skills" | "Contact" | "Projects"
   const sections:section[] = ["About", "Skills", "Projects", "Contact"];
+  const sectionsFa = new Map<section, string>([
+    ["About", "درباره"],
+    ["Skills", "مهارت‌ها"],
+    ["Projects", "پروژه‌ها"],
+    ["Contact", "تماس"],
+  ])
 
   let scrollTo:Record<section, ReturnType<typeof useScroller>> = {
     About:  useScroller("#about"),
@@ -17,12 +23,13 @@ const Navigation = ({lang}:{lang: lang}) => {
     Projects: useScroller("#projects"),
     Contact: useScroller("#contact"),
   }
+  const t = useTranslate(lang)
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b z-50 transition-all duration-300">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <ScrollerBtn to="#hero">
-          <h1 className="font-bold text-xl cursor-pointer">{getFullName()}</h1>
+          <h1 className="font-bold text-xl cursor-pointer">{getDynamicName(lang)}</h1>
         </ScrollerBtn>
         <div className="hidden md:flex space-x-6">
           {sections.map((item) => (
@@ -33,7 +40,7 @@ const Navigation = ({lang}:{lang: lang}) => {
               scrollTo[item].isSeen && "text-primary"
               )}
             >
-              {item}
+              {t(item, sectionsFa.get(item) || "")}
             </button>
           ))}
         </div>

@@ -208,9 +208,38 @@ export const projects: project[] = [
       bestPractices: 100,
       seo: 70,
     },
-    features: [],
-    challenges: [],
-    image: "/samples/privateRoom.webp",
+ "features": [
+    {
+      "title": "Cryptographic identity",
+      "description": "A privacy-focused system where users are identified solely through cryptographic keys, ensuring complete anonymity."
+    },
+    {
+      "title": "Encrypted messaging",
+      "description": "End-to-end encrypted communication that guarantees message confidentiality and security."
+    },
+    {
+      "title": "Key-based authentication",
+      "description": "A streamlined account creation and authentication process where no personal data is stored on the server, relying entirely on private key ownership verification."
+    }
+  ],
+  "challenges": [
+    {
+      "title": "Cryptography API integration",
+      "description": "Mastering the Web Crypto API to securely generate, store, and manage cryptographic keys in the browser."
+    },
+    {
+      "title": "Key-based authentication system",
+      "description": "Designing an authentication mechanism that verifies user identity through private key ownership without revealing sensitive information."
+    },
+    {
+      "title": "Account deletion with proof of ownership",
+      "description": "Implementing a secure account deletion process that requires cryptographic proof of ownership before execution."
+    },
+    {
+      "title": "Dual-key encrypted messaging",
+      "description": "Creating a message encryption method accessible only to the private keys of both participants in a conversation."
+    }
+  ],    image: "/samples/privateRoom.webp",
   },
 ];
 

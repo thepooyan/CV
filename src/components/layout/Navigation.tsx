@@ -3,6 +3,7 @@ import { cn, getFullName } from "@/lib/utils";
 import ThemeToggler from "../parts/ThemeToggler";
 import { useScroller } from "@/lib/Hooks";
 import ScrollerBtn from "./ScrollerBtn";
+import ChangeLanguege from "../parts/ChangeLanguege";
 
 const Navigation = () => {
 
@@ -37,6 +38,7 @@ const Navigation = () => {
         </div>
         <div className="space-x-2">
           <ThemeToggler/>
+          <ChangeLanguege/>
         </div>
       </div>
     </nav>

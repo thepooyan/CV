@@ -5,14 +5,17 @@ import { Badge } from "../ui/badge"
 import { Button } from "../ui/button"
 import Link from "next/link"
 import { ChevronDown, Code, Database, ExternalLink, Github, Globe } from "lucide-react"
+import { lang, useTranslate } from "@/lib/translation"
 
 export interface project {
   title: string
+  titleFa: string
   description: string
+  descriptionFa: string
   tech: string[]
-  importantPages: {url: string, name: string}[]
-  features: {title: string, description: string}[]
-  challenges: {title: string, description: string}[]
+  importantPages: {url: string, name: string, nameFa: string}[]
+  features: {title: string, description: string,titleFa: string, descriptionFa: string,}[]
+  challenges: {title: string, description: string,titleFa: string, descriptionFa: string,}[]
   image: string
   lighthouseScore:
   {
@@ -29,11 +32,13 @@ export interface project {
 
 interface props {
   project: project
+  lang: lang
 }
 
-function ProjectCard({ project }:props) {
+function ProjectCard({ project, lang }:props) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
+  const t = useTranslate(lang)
   const cardRef = useRef<HTMLDivElement>(null)
 
   const getLighthouseColor = (score: number) => {
@@ -83,8 +88,8 @@ function ProjectCard({ project }:props) {
         }`}
       >
         <CardHeader className="mb-4">
-          <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
-          <CardDescription>{project.description}</CardDescription>
+          <CardTitle className="group-hover:text-primary transition-colors">{t(project.title, project.titleFa)}</CardTitle>
+          <CardDescription>{t(project.description,project.descriptionFa)}</CardDescription>
         </CardHeader>
         <CardContent>
           <div
@@ -106,7 +111,11 @@ function ProjectCard({ project }:props) {
                 <Button size="sm" asChild className="flex-1">
                   <Link href={project.link} target="_blank">
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    {project.isDemo ? "Live Demo" : "Live Website"}
+                    {project.isDemo ?
+                      t("Live Demo", "نمایش پروژه")
+                      :
+                      t("Live Website", "نمایش وبسایت")
+                    }
                   </Link>
                 </Button>
                 {project.github && 
@@ -123,7 +132,7 @@ function ProjectCard({ project }:props) {
                 disabled={isAnimating}
                 className="w-full group/expand hover:bg-primary/10 transition-all duration-300"
               >
-                <span className="transition-all duration-300 group-hover/expand:scale-105">View Details</span>
+                <span className="transition-all duration-300 group-hover/expand:scale-105">{t("View Details", "نمایش جزئیات")}</span>
                 <ChevronDown className="w-4 h-4 ml-2 transition-all duration-300 group-hover/expand:translate-y-0.5" />
               </Button>
             </div>
@@ -155,7 +164,7 @@ function ProjectCard({ project }:props) {
                   isExpanded ? "opacity-100 transform translate-x-0" : "opacity-0 transform -translate-x-4"
                 }`}
               >
-                <h4 className="font-semibold mb-2">Technologies Used</h4>
+                <h4 className="font-semibold mb-2">{t("Technologies Used","تکنولوژی‌های مورد استفاده")}</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, idx) => (
                     <Badge
@@ -181,13 +190,13 @@ function ProjectCard({ project }:props) {
                   isExpanded ? "opacity-100 transform translate-x-0" : "opacity-0 transform translate-x-4"
                 }`}
               >
-                <h4 className="font-semibold mb-3 flex items-center">
+                <h4 className="font-semibold mb-3 flex items-center flex gap-3">
                   <Code
-                    className={`w-4 h-4 mr-2 transition-all duration-500 delay-400 ${
+                    className={`w-4 h-4 transition-all duration-500 delay-400 ${
                       isExpanded ? "opacity-100 rotate-0" : "opacity-0 rotate-180"
                     }`}
                   />
-                  Key Features
+                    {t("Key Features", "ویژگی‌های کلیدی")}
                 </h4>
                 <div className="space-y-3">
                   {project.features.map((feature, idx) => (
@@ -200,8 +209,8 @@ function ProjectCard({ project }:props) {
                         transitionDelay: isExpanded ? `${500 + idx * 100}ms` : "0ms",
                       }}
                     >
-                      <h5 className="font-medium text-sm">{feature.title}</h5>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                      <h5 className="font-medium text-sm">{t(feature.title,feature.titleFa)}</h5>
+                      <p className="text-sm text-muted-foreground">{t(feature.description,feature.descriptionFa)}</p>
                     </div>
                   ))}
                 </div>
@@ -214,13 +223,13 @@ function ProjectCard({ project }:props) {
                   isExpanded ? "opacity-100 transform translate-x-0" : "opacity-0 transform -translate-x-4"
                 }`}
               >
-                <h4 className="font-semibold mb-3 flex items-center">
+                <h4 className="font-semibold mb-3 flex items-center gap-3">
                   <Database
-                    className={`w-4 h-4 mr-2 transition-all duration-500 delay-500 ${
+                    className={`w-4 h-4 transition-all duration-500 delay-500 ${
                       isExpanded ? "opacity-100 rotate-0" : "opacity-0 rotate-180"
                     }`}
                   />
-                  Technical Challenges
+                    {t("Technical Challenges", "چالش های تکنیکال")}
                 </h4>
                 <div className="space-y-3">
                   {project.challenges.map((challenge, idx) => (
@@ -233,8 +242,8 @@ function ProjectCard({ project }:props) {
                         transitionDelay: isExpanded ? `${600 + idx * 100}ms` : "0ms",
                       }}
                     >
-                      <h5 className="font-medium text-sm">{challenge.title}</h5>
-                      <p className="text-sm text-muted-foreground">{challenge.description}</p>
+                      <h5 className="font-medium text-sm">{t(challenge.title,challenge.titleFa)}</h5>
+                      <p className="text-sm text-muted-foreground">{t(challenge.description,challenge.descriptionFa)}</p>
                     </div>
                   ))}
                 </div>
@@ -246,13 +255,13 @@ function ProjectCard({ project }:props) {
                   isExpanded ? "opacity-100 transform translate-x-0" : "opacity-0 transform -translate-x-4"
                 }`}
               >
-                <h4 className="font-semibold mb-3 flex items-center">
+                <h4 className="font-semibold mb-3 flex items-center gap-3">
                   <Globe
-                    className={`w-4 h-4 mr-2 transition-all duration-500 delay-600 ${
+                    className={`w-4 h-4 transition-all duration-500 delay-600 ${
                       isExpanded ? "opacity-100 rotate-0" : "opacity-0 rotate-180"
                     }`}
                   />
-                  Important Pages
+                  {t("Important Pages", "صفحات مهم")}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {project.importantPages.map((page, idx) => (
@@ -270,7 +279,7 @@ function ProjectCard({ project }:props) {
                     >
                       <Link href={project.link + page.url} target="_blank" className="justify-start">
                         <ExternalLink className="w-3 h-3 mr-2" />
-                        {page.name}
+                        {t(page.name, page.nameFa)}
                       </Link>
                     </Button>
                   ))}
@@ -283,7 +292,7 @@ function ProjectCard({ project }:props) {
                   isExpanded ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-4"
                 }`}
               >
-                <h4 className="font-semibold mb-3">Lighthouse Scores</h4>
+                <h4 className="font-semibold mb-3 ltr">Lighthouse Scores</h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
                     { label: "Performance", score: project.lighthouseScore.performance },
@@ -320,9 +329,13 @@ function ProjectCard({ project }:props) {
                   }`}
                   style={{ transitionDelay: isExpanded ? "800ms" : "0ms" }}
                 >
-                  <Link href={project.link} target="_blank">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    {project.isDemo ? "Live Demo" : "Live Website"}
+                  <Link href={project.link} target="_blank" className="flex gap-2">
+                    <ExternalLink className="w-4 h-4 " />
+                    {project.isDemo ?
+                      t("Live Demo", "نمایش پروژه")
+                      :
+                      t("Live Website", "نمایش وبسایت")
+                    }
                   </Link>
                 </Button>
                 <Button
@@ -335,9 +348,9 @@ function ProjectCard({ project }:props) {
                   style={{ transitionDelay: isExpanded ? "850ms" : "0ms" }}
                 >
                   {project.github && 
-                  <Link href={project.github} target="_blank">
-                    <Github className="w-4 h-4 mr-2" />
-                    Source Code
+                  <Link href={project.github} target="_blank" className="flex gap-2">
+                    <Github className="w-4 h-4 " />
+                    {t("Source Code", "سورس کد")}
                   </Link>}
                 </Button>
                 <Button
@@ -350,7 +363,7 @@ function ProjectCard({ project }:props) {
                   }`}
                   style={{ transitionDelay: isExpanded ? "900ms" : "0ms" }}
                 >
-                  <span className="transition-all duration-300 group-hover/collapse:scale-105">Collapse</span>
+                  <span className="transition-all duration-300 group-hover/collapse:scale-105">{t("Collapse","بستن")}</span>
                   <ChevronDown className="w-4 h-4 ml-2 rotate-180 transition-all duration-300 group-hover/collapse:-translate-y-0.5" />
                 </Button>
               </div>

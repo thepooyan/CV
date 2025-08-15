@@ -13,7 +13,7 @@ const layout = async ({children, params}:props) => {
     <>
       <Navigation lang={lang}/>
       {children}
-      <Footer/>
+      <Footer lang={lang}/>
     </>
   )
 }

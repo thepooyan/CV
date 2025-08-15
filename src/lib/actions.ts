@@ -18,9 +18,9 @@ export async function sendMessage(name: string, email: string, msg: string) {
     await sendToAdmin(formatMessage(name, email, msg))
   } catch(e) {
     console.log(e)
-    return { ok: false, msg: "Something went wrong. please try again."}
+    return { ok: false, msg: "Something went wrong. please try again.", msgFa: "مشکلی پیش آمده. لطفا مجددا تلاش کنید"}
   }
 
-  return { ok: true, msg: "Message sent successfully" }
+  return { ok: true, msg: "Message sent successfully", msgFa: "پیام با موفقیت ارسال شد!" }
 }
 

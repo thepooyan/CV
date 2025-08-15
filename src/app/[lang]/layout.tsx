@@ -5,6 +5,7 @@ import "@/app/globals.css"
 import { STATIC } from "@/lib/static"
 import { GoogleTagManager } from '@next/third-parties/google'
 import { getFullName } from "@/lib/utils"
+import { redirect } from "next/navigation"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,9 +17,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+    params: {lang: string}
 }) {
+  if (params.lang !== "en" && params.lang !== "fa") redirect("/")
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>

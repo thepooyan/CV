@@ -56,7 +56,7 @@ const Hero = ({lang}:page) => {
                 size="lg"
               >
                 {t(
-                  "sget in Touch",
+                  "Get in Touch",
                   "راه های ارتباط"
                 )}
               </Button>

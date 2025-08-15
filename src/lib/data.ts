@@ -32,18 +32,18 @@ export const skillsData = {
     { name: "Docker", level: 80 },
     { name: "GitHub Actions", level: 68 },
   ],
-  "More": [
+  More: [
     { name: "Git", level: 99 },
     { name: "Linux", level: 98 },
     { name: "Figma", level: 20 },
   ],
 };
 
-export const projects:project[] = [
+export const projects: project[] = [
   {
     title: "Hooshban",
     description: "Full-stack Branding website with AI features",
-    tech: ["Solid.js", "Drizzle","TailwindCSS", "shadcn", "Chat interface"],
+    tech: ["Solid.js", "Drizzle", "TailwindCSS", "shadcn", "Chat interface"],
     link: "https://brand-amber.vercel.app/",
     github: "https://github.com/thepooyan/brand.git",
     isDemo: true,
@@ -61,31 +61,41 @@ export const projects:project[] = [
         url: "/Place-order/Website",
       },
     ],
-    lighthouseScore: {performance: 100, accessibility: 95, bestPractices: 96, seo: 100},
-"features": [
-    {
-      "title": "AI chat",
-      "description": "An intelligent chat assistant that interfaces with the Gemini API, utilizing a predefined system prompt to generate and deliver responses."
+    lighthouseScore: {
+      performance: 100,
+      accessibility: 95,
+      bestPractices: 96,
+      seo: 100,
     },
-    {
-      "title": "Three animation libraries",
-      "description": "A combination of View Transition API, a custom Motion.js implementation for SolidJS, and Tailwind CSS animations to create smooth, responsive UI transitions."
-    },
-    {
-      "title": "SSR rendering",
-      "description": "Server-side rendering implemented with Suspense in SolidStart to enhance initial load performance and SEO capabilities."
-    },
-    {
-      "title": "Telegram connection",
-      "description": "A Telegram integration that enables event notifications for administrators and supports direct AI interaction through the messaging platform."
-    }
-  ],
-  "challenges": [
-    {
-      "title": "Chat streaming",
-      "description": "Developing a front-end mechanism to receive the LLM’s response in real time and stream it to the client, incorporating a buffer to ensure the text appears in a smooth, visually appealing manner."
-    }
-  ],
+    features: [
+      {
+        title: "AI chat",
+        description:
+          "An intelligent chat assistant that interfaces with the Gemini API, utilizing a predefined system prompt to generate and deliver responses.",
+      },
+      {
+        title: "Three animation libraries",
+        description:
+          "A combination of View Transition API, a custom Motion.js implementation for SolidJS, and Tailwind CSS animations to create smooth, responsive UI transitions.",
+      },
+      {
+        title: "SSR rendering",
+        description:
+          "Server-side rendering implemented with Suspense in SolidStart to enhance initial load performance and SEO capabilities.",
+      },
+      {
+        title: "Telegram connection",
+        description:
+          "A Telegram integration that enables event notifications for administrators and supports direct AI interaction through the messaging platform.",
+      },
+    ],
+    challenges: [
+      {
+        title: "Chat streaming",
+        description:
+          "Developing a front-end mechanism to receive the LLM’s response in real time and stream it to the client, incorporating a buffer to ensure the text appears in a smooth, visually appealing manner.",
+      },
+    ],
     image: "/samples/Hooshban.webp",
   },
   {
@@ -111,9 +121,41 @@ export const projects:project[] = [
         url: "/panel/RegisterReviewer",
       },
     ],
-    lighthouseScore: {performance: 98, accessibility: 89, bestPractices: 100, seo: 82},
-    features: [],
-    challenges: [],
+    lighthouseScore: {
+      performance: 98,
+      accessibility: 89,
+      bestPractices: 100,
+      seo: 82,
+    },
+    features: [
+      {
+        title: "Live chat page",
+        description:
+          "An interactive live chat interface where users can post comments and upload images in real time.",
+      },
+      {
+        title: "Next.js tag-based caching",
+        description:
+          "Full-page and data-level caching implemented using Next.js tag-based cache with precise invalidation for up-to-date content delivery.",
+      },
+      {
+        title: "Dynamic pages",
+        description:
+          "Pages that can be created on demand, assigned to the header or footer navigation, and customized with dynamic titles and content.",
+      },
+      {
+        title: "Dynamic content management",
+        description:
+          "A fully dynamic landing page where all content is managed by administrators through a CKEditor-powered dashboard.",
+      },
+    ],
+    challenges: [
+      {
+        title: "Complex forms",
+        description:
+          "Building advanced forms that required specialized libraries, dynamic dropdowns with on-demand data fetching, and real-time search suggestion handling with debouncing.",
+      },
+    ],
     image: "/samples/trusty.webp",
   },
   {
@@ -122,7 +164,12 @@ export const projects:project[] = [
     tech: ["SASS", "HTML", "Pure js", ".Net Razor Pages"],
     link: "https://tahlildadeh.com/",
     importantPages: [],
-    lighthouseScore: {performance: 91, accessibility: 69, bestPractices: 96, seo: 92},
+    lighthouseScore: {
+      performance: 91,
+      accessibility: 69,
+      bestPractices: 96,
+      seo: 92,
+    },
     features: [],
     challenges: [],
     image: "/samples/Tahlildadeh.webp",
@@ -136,7 +183,12 @@ export const projects:project[] = [
     isDemo: true,
     isHobby: true,
     importantPages: [],
-    lighthouseScore: {performance: 98, accessibility: 89, bestPractices: 93, seo: 73},
+    lighthouseScore: {
+      performance: 98,
+      accessibility: 89,
+      bestPractices: 93,
+      seo: 73,
+    },
     features: [],
     challenges: [],
     image: "/samples/onetapfactor.webp",
@@ -150,7 +202,12 @@ export const projects:project[] = [
     isDemo: true,
     isHobby: true,
     importantPages: [],
-    lighthouseScore: {performance: 55, accessibility: 78, bestPractices: 100, seo: 70},
+    lighthouseScore: {
+      performance: 55,
+      accessibility: 78,
+      bestPractices: 100,
+      seo: 70,
+    },
     features: [],
     challenges: [],
     image: "/samples/privateRoom.webp",

@@ -8,7 +8,7 @@ import { getFullName } from "@/lib/utils"
 import { redirect } from "next/navigation"
 
 const inter = Inter({ subsets: ["latin"] })
-const vazir = Vazirmatn()
+const vazir = Vazirmatn({ subsets: ["arabic"] })
 
 const getFont = (lang: string) => {
   if (lang === "fa") return vazir

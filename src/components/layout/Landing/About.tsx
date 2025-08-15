@@ -33,22 +33,22 @@ const About = ({ lang }: props) => {
                 )}
               </p>
               <div className="flex flex-wrap gap-4">
-                <Badge variant="secondary" className="px-3 py-1">
-                  <Code className="w-4 h-4 mr-2" />
+                <Badge variant="secondary" className="px-3 py-1 flex gap-3">
+                  <Code className="w-4 h-4 " />
                   {t(
                     "5+ Years Experience",
                     "بیش از ۵ سال تجربه"
                   )}
                 </Badge>
-                <Badge variant="secondary" className="px-3 py-1">
-                  <Globe className="w-4 h-4 mr-2" />
+                <Badge variant="secondary" className="px-3 py-1 flex gap-3">
+                  <Globe className="w-4 h-4 " />
                   {t(
                     "Remote Friendly",
                     "توانایی کار ریموت",
                   )}
                 </Badge>
-                <Badge variant="secondary" className="px-3 py-1">
-                  <Database className="w-4 h-4 mr-2" />
+                <Badge variant="secondary" className="px-3 py-1 flex gap-3">
+                  <Database className="w-4 h-4 " />
                   {t(
                     "Full Stack",
                     "فول استک"

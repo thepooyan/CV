@@ -1,5 +1,4 @@
 import { project } from "@/components/parts/ProjectCard";
-import { isDeepStrictEqual } from "util";
 
 export const skillsData = {
   Frontend: [
@@ -63,30 +62,30 @@ export const projects:project[] = [
       },
     ],
     lighthouseScore: {performance: 100, accessibility: 95, bestPractices: 96, seo: 100},
-    features: [
-      {
-        title: "AI chat",
-        description: "",
-      },
-      {
-        title: "Three animation libraries",
-        description: "",
-      },
-      {
-        title: "SSR rendering",
-        description: "",
-      },
-      {
-        title: "Telegram connection",
-        description: "",
-      },
-    ],
-    challenges: [
-      {
-        title: "Chat streaming",
-        description: "",
-      },
-    ],
+"features": [
+    {
+      "title": "AI chat",
+      "description": "An intelligent chat assistant that interfaces with the Gemini API, utilizing a predefined system prompt to generate and deliver responses."
+    },
+    {
+      "title": "Three animation libraries",
+      "description": "A combination of View Transition API, a custom Motion.js implementation for SolidJS, and Tailwind CSS animations to create smooth, responsive UI transitions."
+    },
+    {
+      "title": "SSR rendering",
+      "description": "Server-side rendering implemented with Suspense in SolidStart to enhance initial load performance and SEO capabilities."
+    },
+    {
+      "title": "Telegram connection",
+      "description": "A Telegram integration that enables event notifications for administrators and supports direct AI interaction through the messaging platform."
+    }
+  ],
+  "challenges": [
+    {
+      "title": "Chat streaming",
+      "description": "Developing a front-end mechanism to receive the LLM’s response in real time and stream it to the client, incorporating a buffer to ensure the text appears in a smooth, visually appealing manner."
+    }
+  ],
     image: "/samples/Hooshban.webp",
   },
   {

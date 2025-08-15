@@ -15,14 +15,15 @@ export const metadata: Metadata = {
     `Portfolio website of ${getFullName()}, a passionate fullstack developer specializing in modern web technologies.`,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params
 }: {
   children: React.ReactNode,
-    params: {lang: string}
+    params: Promise<{lang: string}>
 }) {
-  if (params.lang !== "en" && params.lang !== "fa") redirect("/")
+  const {lang} = await params
+  if (lang !== "en" && lang !== "fa") redirect("/")
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>

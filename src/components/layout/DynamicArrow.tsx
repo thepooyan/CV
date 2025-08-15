@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react"
 
 const DynamicArrow = ({className}:{className: string}) => {
   return (
-    <ArrowRight className={cn("[&:lang(fa)]:rotate-180", className)}/>
+    <ArrowRight className={cn("[&:lang(fa)]:rotate-180 group-hover:translate-x-1 [&:lang(fa)]:group-hover:-translate-x-1", className)}/>
   )
 }
 

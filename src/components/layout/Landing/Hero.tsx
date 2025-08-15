@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getFullName, getFullNameFa } from "@/lib/utils";
 import ScrollerBtn from "../ScrollerBtn";
@@ -48,7 +48,7 @@ const Hero = ({lang}:page) => {
                   "View My Work",
                   "نمایش پروژه‌ها"
                 )}
-                <DynamicArrow className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <DynamicArrow className="ml-2 h-4 w-4 transition-transform  " />
               </Button>
             </ScrollerBtn>
             <ScrollerBtn to="#contact">

@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getFullName, getFullNameFa } from "@/lib/utils";
 import ScrollerBtn from "../ScrollerBtn";
 import { lang, useTranslate } from "@/lib/translation";
+import DynamicArrow from "../DynamicArrow";
 
 interface page {
   lang: lang
@@ -47,7 +48,7 @@ const Hero = ({lang}:page) => {
                   "View My Work",
                   "نمایش پروژه‌ها"
                 )}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <DynamicArrow className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </ScrollerBtn>
             <ScrollerBtn to="#contact">

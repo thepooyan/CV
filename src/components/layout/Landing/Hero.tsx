@@ -32,8 +32,10 @@ const Hero = ({lang}:page) => {
             )} 
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Fullstack Developer crafting digital experiences with modern
-            technologies
+            {t(
+              " Fullstack Developer crafting digital experiences with modern technologies ",
+              "توسعه‌دهنده فول‌استک، خالق تجربیات دیجیتال با بهره‌گیری از فناوری‌های روز دنیا "
+            )}
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <ScrollerBtn to="#projects">
@@ -41,7 +43,10 @@ const Hero = ({lang}:page) => {
                 size="lg"
                 className="group"
               >
-                View My Work
+                {t(
+                  "View My Work",
+                  "نمایش پروژه‌ها"
+                )}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </ScrollerBtn>
@@ -49,9 +54,11 @@ const Hero = ({lang}:page) => {
               <Button
                 variant="outline"
                 size="lg"
-                // onClick={() => scrollToSection("contact")}
               >
-                Get In Touch
+                {t(
+                  "sget in Touch",
+                  "راه های ارتباط"
+                )}
               </Button>
             </ScrollerBtn>
           </div>

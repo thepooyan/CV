@@ -15,7 +15,8 @@ export const toggleDarkMode = () => {
   document.documentElement.classList.add("dark")
 }
 
-export const getFullName = () => STATIC.name + " " + STATIC.lastName
+export const getFullName = () => STATIC.name + " " + STATIC.lastName;
+export const getFullNameFa = () => STATIC.nameFa + " " + STATIC.lastNameFa;
 
 export const formatMessage = (name: string, email: string, msg: string) => `name: ${name}\nemail: ${email}\n\n${msg}`
 

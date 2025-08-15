@@ -1,6 +1,8 @@
 export const STATIC = {
   name: "Pooyan",
+  nameFa: "پویان",
   lastName: "Salmani",
+  lastNameFa: "سلمانی",
   email: "thepooyan@gmail.com",
   mobile: "+989027766926",
   github: "https://github.com/thepooyan/",

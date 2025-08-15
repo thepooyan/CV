@@ -160,4 +160,8 @@
 
 html {
   scroll-behavior: smooth;
+
+  :lang("fa") {
+    direction: rtl;
+  }
 }

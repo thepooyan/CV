@@ -78,7 +78,7 @@ function ProjectCard({ project }:props) {
       }}
     >
       <div
-        className={`transition-all duration-600 ease-in-out ${
+        className={`transition-all duration-600 ease-in-out h-full flex flex-col justify-between ${
           isExpanded ? "scale-100 opacity-100" : "scale-100 opacity-100"
         }`}
       >

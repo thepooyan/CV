@@ -161,7 +161,15 @@
 html {
   scroll-behavior: smooth;
 
-  :lang("fa") {
-    direction: rtl;
-  }
+}
+
+html:lang(fa) {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
+.rtl {
+  direction: rtl;
 }

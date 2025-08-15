@@ -4,8 +4,9 @@ import ThemeToggler from "../parts/ThemeToggler";
 import { useScroller } from "@/lib/Hooks";
 import ScrollerBtn from "./ScrollerBtn";
 import ChangeLanguege from "../parts/ChangeLanguege";
+import { lang } from "@/lib/translation";
 
-const Navigation = () => {
+const Navigation = ({lang}:{lang: lang}) => {
 
   type section = "About" | "Skills" | "Contact" | "Projects"
   const sections:section[] = ["About", "Skills", "Projects", "Contact"];
@@ -38,7 +39,7 @@ const Navigation = () => {
         </div>
         <div className="space-x-2">
           <ThemeToggler/>
-          <ChangeLanguege/>
+          <ChangeLanguege lang={lang}/>
         </div>
       </div>
     </nav>

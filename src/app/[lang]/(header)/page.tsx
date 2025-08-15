@@ -3,8 +3,12 @@ import About from "@/components/layout/Landing/About"
 import Skills from "@/components/layout/Landing/Skills"
 import Projects from "@/components/layout/Landing/Projects"
 import Contact from "@/components/layout/Landing/Contact"
+import { lang } from "@/lib/translation"
 
-export default async function CVWebsite({params}:any) {
+interface props {
+  params: Promise<{lang: lang}>
+}
+export default async function CVWebsite({params}:props) {
   const {lang} = await params
   return (
     <>

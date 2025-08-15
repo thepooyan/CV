@@ -1,10 +1,13 @@
-const primaryLocale = "en"
-const secondaryLocale = "fa"
+export type lang = "en" | "fa"
 
-export const useTranslate = (lang: string) => {
-  return (primaryLang: string, secondaryLang: string) => {
-    if (lang === primaryLocale) return primaryLang
-    if (lang === secondaryLocale) return secondaryLang
-    throw new Error(`locale ${lang} is not defined`)
+const languegeOrder:lang[] = [
+  "en",
+  "fa"
+]
+
+export const useTranslate = (lang: lang) => {
+  return (...args: string[]) => {
+    let index = languegeOrder.indexOf(lang)
+    return args[index]
   }
 }

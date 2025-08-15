@@ -3,10 +3,10 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getFullName, getFullNameFa } from "@/lib/utils";
 import ScrollerBtn from "../ScrollerBtn";
-import { useTranslate } from "@/lib/translation";
+import { lang, useTranslate } from "@/lib/translation";
 
 interface page {
-  lang: string
+  lang: lang
 }
 const Hero = ({lang}:page) => {
   const t = useTranslate(lang)

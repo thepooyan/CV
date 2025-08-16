@@ -31,7 +31,7 @@ const Contact = ({lang}:pr) => {
                 </p>
                 <div className="space-y-4">
                   <Button variant="outline" size="lg" asChild className="w-full justify-start bg-transparent ltr">
-                    <Link href={`call:${STATIC.mobile}`}>
+                    <Link href={`tel:${STATIC.mobile}`}>
                       <Phone className="w-5 h-5 mr-3" />
                       {STATIC.mobile}
                     </Link>

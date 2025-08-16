@@ -103,7 +103,7 @@ export const projects: project[] = [
   },
   {
     title: "Trusty.sci",
-    titleFa: "ترستی.سای",
+    titleFa: "Trusty.sci",
     description: "Educational article sharing with tons of features",
     descriptionFa: "به اشتراک‌گذاری مقالات آموزشی با امکانات فراوان",
     tech: ["Next.js", "Stripe", "NextUI", "TailwindCSS", ".Net rest api"],
@@ -116,6 +116,12 @@ export const projects: project[] = [
     ],
     lighthouseScore: { performance: 98, accessibility: 89, bestPractices: 100, seo: 82 },
     features: [
+      {
+        title: "Stripe payment",
+        titleFa: "اتصال به درگاه Stripe",
+        description: "Application connects to Stripe for services with payment.",
+        descriptionFa: "برنامه میتواند با اتصال به Stripe فرایند پرداخت انجام دهد.",
+      },
       {
         title: "Live chat page",
         titleFa: "صفحه چت زنده",
@@ -163,7 +169,7 @@ export const projects: project[] = [
   },
   {
     title: "Tahlildadeh Academy",
-    titleFa: "آکادمی تحلیل‌ده",
+    titleFa: "آکادمی تحلیل‌داده",
     description: "Coding Academy website",
     descriptionFa: "وب‌سایت آکادمی کدنویسی",
     tech: ["SASS", "HTML", "Pure js", ".Net Razor Pages"],
@@ -178,7 +184,7 @@ export const projects: project[] = [
     title: "Invoice creation app",
     titleFa: "اپلیکیشن صدور فاکتور",
     description: "Hobby project, for creating and sharing invoices easily",
-    descriptionFa: "پروژه سرگرمی برای ایجاد و اشتراک‌گذاری آسان فاکتورها",
+    descriptionFa: "پروژه سرگرمی برای ایجاد و اشتراک‌گذاری آسان فاکتور",
     tech: ["Solid.js", "UnoCSS", "shadcn", "Python", "FastAPI"],
     link: "https://factor-coral.vercel.app",
     github: "https://github.com/thepooyan/factor",
@@ -192,7 +198,7 @@ export const projects: project[] = [
   },
   {
     title: "Private Room",
-    titleFa: "اتاق خصوصی",
+    titleFa: "Private Room",
     description: "A Hobby chating website, with Crypto encryption",
     descriptionFa: "یک وب‌سایت سرگرمی چت با رمزگذاری کریپتو",
     tech: ["Solid.js", "Pocketbase", "shadcn", "TailwindCSS", "WebCryptoAPI"],

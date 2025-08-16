@@ -23,13 +23,13 @@ const About = ({ lang }: props) => {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {t(
                   "I'm a passionate fullstack developer with over 5 years of experience building scalable web applications. I love turning complex problems into simple, beautiful designs.",
-                  "من یک توسعه‌دهنده فول‌استک پرشور هستم با بیش از ۵ سال تجربه در ساخت برنامه‌های وب مقیاس‌پذیر. عاشق تبدیل مسائل پیچیده به طراحی‌های ساده و زیبا هستم. ",
+                  "من یک توسعه‌دهنده فول‌استک پرشور هستم با بیش از ۵ سال تجربه در ساخت برنامه‌های وب مقیاس‌پذیر. عاشق تبدیل مسائل پیچیده به طراحی‌های ساده و زیبا!",
                 )}
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {t(
                   " When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing my knowledge through blog posts and community involvement.",
-                  "وقتی در حال کدنویسی نیستم، می‌توانید مرا در حال کشف فناوری‌های جدید، مشارکت در پروژه‌های متن‌باز یا به اشتراک گذاشتن دانشم از طریق نوشته‌های وبلاگی و فعالیت در جامعه پیدا کنید. "
+                  "وقتی در حال کدنویسی نباشم، می‌توانید من رو در حال کشف فناوری‌های جدید، مشارکت در پروژه‌های ‌اپن‌سورس یا به اشتراک گذاشتن دانشم از طریق نوشته‌های وبلاگی و فعالیت در جامعه پیدا کنید. "
                 )}
               </p>
               <div className="flex flex-wrap gap-4">

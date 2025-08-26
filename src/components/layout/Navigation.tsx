@@ -1,5 +1,5 @@
 "use client"
-import { cn, getDynamicName, getFullName } from "@/lib/utils";
+import { cn, getDynamicName } from "@/lib/utils";
 import ThemeToggler from "../parts/ThemeToggler";
 import { useScroller } from "@/lib/Hooks";
 import ScrollerBtn from "./ScrollerBtn";
@@ -8,13 +8,14 @@ import { lang, useTranslate } from "@/lib/translation";
 
 const Navigation = ({lang}:{lang: lang}) => {
 
-  type section = "About" | "Skills" | "Contact" | "Projects"
-  const sections:section[] = ["About", "Skills", "Projects", "Contact"];
+  type section = "About" | "Skills" | "Contact" | "Projects" | "Blog"
+  const sections:section[] = ["About", "Skills", "Projects", "Contact", "Blog"];
   const sectionsFa = new Map<section, string>([
     ["About", "درباره"],
     ["Skills", "مهارت‌ها"],
     ["Projects", "پروژه‌ها"],
     ["Contact", "تماس"],
+    ["Blog", " بلاگ"]
   ])
 
   let scrollTo:Record<section, ReturnType<typeof useScroller>> = {
@@ -22,6 +23,7 @@ const Navigation = ({lang}:{lang: lang}) => {
     Skills: useScroller("#skills"),
     Projects: useScroller("#projects"),
     Contact: useScroller("#contact"),
+    Blog: useScroller("#blog"),
   }
   const t = useTranslate(lang)
 

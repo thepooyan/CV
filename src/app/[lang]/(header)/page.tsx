@@ -4,6 +4,7 @@ import Skills from "@/components/layout/Landing/Skills"
 import Projects from "@/components/layout/Landing/Projects"
 import Contact from "@/components/layout/Landing/Contact"
 import { lang } from "@/lib/translation"
+import Blog from "@/components/layout/Landing/Blog"
 
 interface props {
   params: Promise<{lang: lang}>
@@ -17,6 +18,7 @@ export default async function CVWebsite({params}:props) {
       <Skills lang={lang}/>
       <Projects lang={lang}/>
       <Contact lang={lang}/>
+      <Blog/>
     </>
   )
 }

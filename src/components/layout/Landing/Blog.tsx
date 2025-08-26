@@ -49,10 +49,12 @@ const BlogShowcase = ({blogs, lang}:props) => {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg">
-              {t("View All Posts", "نمایش همه")}
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+            <Link href={`/en/Blog/`}>
+              <Button variant="outline" size="lg">
+                {t("View All Posts", "نمایش همه")}
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

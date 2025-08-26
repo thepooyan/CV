@@ -6,15 +6,18 @@ import {
   ArrowRight,
 } from "lucide-react"
 import { blogCard } from "@/lib/interface"
+import { lang, useTranslate } from "@/lib/translation"
 
 interface props {
   blogs: blogCard[]
+  lang: lang
 }
-const BlogShowcase = ({blogs}:props) => {
+const BlogShowcase = ({blogs, lang}:props) => {
+  const t = useTranslate(lang)
   return (
       <section id="blog" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Latest Blog Posts</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{t("Latest Blog Posts", "آخرین بلاگ ها")}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {blogs.map((post) => (
               <Card
@@ -35,7 +38,7 @@ const BlogShowcase = ({blogs}:props) => {
                 </CardHeader>
                 <CardContent>
                   <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
-                    Read More
+                    {t("Read More", "بیشتر بخوانید")}
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </CardContent>
@@ -44,7 +47,7 @@ const BlogShowcase = ({blogs}:props) => {
           </div>
           <div className="text-center mt-12">
             <Button variant="outline" size="lg">
-              View All Posts
+              {t("View All Posts", "نمایش همه")}
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>

@@ -19,7 +19,7 @@ export default async function CVWebsite({params}:props) {
       <Skills lang={lang}/>
       <Projects lang={lang}/>
       <Contact lang={lang}/>
-      <BlogShowcase blogs={blogPosts}/>
+      <BlogShowcase blogs={blogPosts} lang={lang}/>
     </>
   )
 }

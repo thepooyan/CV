@@ -7,6 +7,7 @@ import {
 } from "lucide-react"
 import { blogCard } from "@/lib/interface"
 import { lang, useTranslate } from "@/lib/translation"
+import Link from "next/link"
 
 interface props {
   blogs: blogCard[]
@@ -37,10 +38,12 @@ const BlogShowcase = ({blogs, lang}:props) => {
                   <CardDescription className="line-clamp-3">{post.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
-                    {t("Read More", "بیشتر بخوانید")}
-                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
+                  <Link href={`/en/Blog/${encodeURIComponent(post.title)}`}>
+                    <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
+                      {t("Read More", "بیشتر بخوانید")}
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}

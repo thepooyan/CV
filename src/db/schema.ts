@@ -11,3 +11,11 @@ export const adminsTable = sqliteTable("admins_table", {
   id: int().primaryKey({autoIncrement: true}),
   chat_id: text().notNull()
 })
+
+export const blogsTable = sqliteTable("blogs_table", {
+  id: int().primaryKey({ autoIncrement: true }),
+  title: text().notNull(),
+  description: text().notNull(),
+  date: text().notNull(),
+  readTime: int().notNull(),
+})

@@ -1,7 +1,7 @@
 "use client"
 const error = () => {
   return (
-    <div>post not found</div>
+    <div>Something went wrong while fetching the post!</div>
   )
 }
 

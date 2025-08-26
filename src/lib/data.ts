@@ -1,4 +1,5 @@
 import { project } from "@/components/parts/ProjectCard";
+import { blogCard } from "./interface";
 
 export const skillsData = {
   Frontend: [
@@ -258,26 +259,26 @@ export const projects: project[] = [
   },
 ];
 
-export const blogPosts = [
+export const blogPosts:blogCard[] = [
   {
     title: "Building Scalable React Applications",
-    excerpt:
+    description:
       "Best practices for structuring large React applications with proper state management and component architecture.",
     date: "2024-01-15",
-    readTime: "8 min read",
+    readTime: 8,
   },
   {
     title: "Modern Backend Development with Node.js",
-    excerpt:
+    description:
       "Exploring the latest trends in Node.js development including microservices and serverless architectures.",
     date: "2024-01-08",
-    readTime: "6 min read",
+    readTime: 6,
   },
   {
     title: "Database Design Patterns",
-    excerpt:
+    description:
       "Common database design patterns and when to use them in your applications.",
     date: "2024-01-01",
-    readTime: "10 min read",
+    readTime: 10,
   },
 ];

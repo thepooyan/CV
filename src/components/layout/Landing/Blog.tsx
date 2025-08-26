@@ -5,15 +5,18 @@ import {
   Calendar,
   ArrowRight,
 } from "lucide-react"
-import { blogPosts } from "@/lib/data"
+import { blogCard } from "@/lib/interface"
 
-const Blog = () => {
+interface props {
+  blogs: blogCard[]
+}
+const BlogShowcase = ({blogs}:props) => {
   return (
       <section id="blog" className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Latest Blog Posts</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {blogPosts.map((post) => (
+            {blogs.map((post) => (
               <Card
                 key={post.title}
                 className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
@@ -23,12 +26,12 @@ const Blog = () => {
                     <Calendar className="w-4 h-4" />
                     {new Date(post.date).toLocaleDateString()}
                     <Separator orientation="vertical" className="h-4" />
-                    {post.readTime}
+                    {post.readTime} Min read
                   </div>
                   <CardTitle className="group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
                   </CardTitle>
-                  <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
+                  <CardDescription className="line-clamp-3">{post.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
@@ -50,4 +53,4 @@ const Blog = () => {
 )
 }
 
-export default Blog
+export default BlogShowcase

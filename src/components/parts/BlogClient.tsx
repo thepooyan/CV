@@ -122,7 +122,7 @@ const BlogClient = ({ blogPosts }: props) => {
                 <div className="flex items-center gap-2">
                   <Avatar className="w-6 h-6">
                     <AvatarImage
-                      src="/placeholder.svg?height=24&width=24"
+                      src="/me.webp?height=24&width=24"
                       alt="Pooyan Salmani"
                     />
                     <AvatarFallback>PS</AvatarFallback>

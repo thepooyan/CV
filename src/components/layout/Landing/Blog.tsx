@@ -5,16 +5,19 @@ import {
   Calendar,
   ArrowRight,
 } from "lucide-react"
-import { blogCard } from "@/lib/interface"
 import { lang, useTranslate } from "@/lib/translation"
 import Link from "next/link"
+import { db } from "@/db"
+import { blogsTable } from "@/db/schema"
 
 interface props {
-  blogs: blogCard[]
   lang: lang
 }
-const BlogShowcase = ({blogs, lang}:props) => {
+const BlogShowcase = async ({lang}:props) => {
+
+  let blogs = await db.select().from(blogsTable)
   const t = useTranslate(lang)
+
   return (
       <section id="blog" className="py-20">
         <div className="container mx-auto px-4">

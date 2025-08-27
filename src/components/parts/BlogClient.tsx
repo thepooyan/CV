@@ -35,11 +35,11 @@ const BlogClient = ({ blogPosts }: props) => {
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.tags?.some((tag) =>
-        tag.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
-    return matchesSearch && selectedTag === "All";
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchTag = 
+      post.tags?.includes(selectedTag) || selectedTag === "All"
+
+    return matchesSearch && matchTag;
   });
   return (
     <div>

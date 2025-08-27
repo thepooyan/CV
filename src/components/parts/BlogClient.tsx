@@ -44,8 +44,8 @@ const BlogClient = ({ blogPosts }: props) => {
   return (
     <div>
       {/* Search and Filter */}
-      <div className="flex flex-col md:flex-row gap-4 mb-8">
-        <div className="relative flex-1">
+      <div className="flex flex-col gap-4 mb-8">
+        <div className="relative flex-1 md:w-2/3 mx-auto">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
           <input
             type="text"

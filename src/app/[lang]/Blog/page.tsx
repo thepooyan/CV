@@ -16,7 +16,7 @@ export default async function BlogPage() {
             Thoughts, tutorials, and insights about web development, programming, and technology.
           </p>
         </div>
-        <Suspense fallback="Loading...">
+        <Suspense fallback={<>Fetching blog posts...</>}>
           <BlogFetcher/>
         </Suspense>
 

@@ -138,7 +138,7 @@ const BlogClient = ({ blogPosts }: props) => {
                   asChild
                   className="group-hover:text-primary"
                 >
-                  <Link href={`/blog/${post.id}`}>
+                  <Link href={`/en/Blog/${encodeURIComponent(post.title)}`}>
                     Read More
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Link>

@@ -15,7 +15,7 @@ interface props {
 }
 const BlogShowcase = async ({lang}:props) => {
 
-  let blogs = await db.select().from(blogsTable)
+  let blogs = await db.select().from(blogsTable).limit(3)
   const t = useTranslate(lang)
 
   return (
@@ -38,7 +38,7 @@ const BlogShowcase = async ({lang}:props) => {
                   <CardTitle className="group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
                   </CardTitle>
-                  <CardDescription className="line-clamp-3">{post.description}</CardDescription>
+                  <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Link href={`/en/Blog/${encodeURIComponent(post.title)}`}>

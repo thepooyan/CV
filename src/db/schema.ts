@@ -15,8 +15,10 @@ export const adminsTable = sqliteTable("admins_table", {
 export const blogsTable = sqliteTable("blogs_table", {
   id: int().primaryKey({ autoIncrement: true }),
   title: text().notNull(),
-  description: text().notNull(),
+  excerpt: text().notNull(),
+  content: text().notNull(),
   date: text().notNull(),
   readTime: int().notNull(),
+  image: text(),
   tags: text({ mode: "json" }).$type<string[]>(),
 })

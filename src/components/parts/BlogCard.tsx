@@ -41,7 +41,7 @@ const BlogCard = ({ post, index }: { post: typeof blogsTable.$inferSelect, index
           {new Date(post.date).toLocaleDateString()}
           <Separator orientation="vertical" className="h-4" />
           <Clock className="w-4 h-4" />
-          {post.readTime}
+          {post.readTime} min read
         </div>
         <CardTitle className="group-hover:text-primary transition-colors line-clamp-2">
           {post.title}

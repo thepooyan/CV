@@ -9,6 +9,7 @@ import { lang, useTranslate } from "@/lib/translation"
 import Link from "next/link"
 import { db } from "@/db"
 import { blogsTable } from "@/db/schema"
+import BlogCard from "@/components/parts/BlogCard"
 
 interface props {
   lang: lang
@@ -23,32 +24,8 @@ const BlogShowcase = async ({lang}:props) => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{t("Latest Blog Posts", "آخرین بلاگ ها")}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {blogs.map((post) => (
-              <Card
-                key={post.title}
-                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-              >
-                <CardHeader>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                    <Calendar className="w-4 h-4" />
-                    {new Date(post.date).toLocaleDateString()}
-                    <Separator orientation="vertical" className="h-4" />
-                    {post.readTime} Min read
-                  </div>
-                  <CardTitle className="group-hover:text-primary transition-colors line-clamp-2">
-                    {post.title}
-                  </CardTitle>
-                  <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Link href={`/en/Blog/${encodeURIComponent(post.title)}`}>
-                    <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
-                      {t("Read More", "بیشتر بخوانید")}
-                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+            {blogs.map((post,i) => (
+              <BlogCard post={post} index={i} key={i}/>
             ))}
           </div>
           <div className="text-center mt-12">

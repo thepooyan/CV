@@ -18,4 +18,5 @@ export const blogsTable = sqliteTable("blogs_table", {
   description: text().notNull(),
   date: text().notNull(),
   readTime: int().notNull(),
+  tags: text({ mode: "json" }).$type<string[]>(),
 })

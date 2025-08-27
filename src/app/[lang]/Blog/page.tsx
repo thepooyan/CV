@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
-import { ArrowLeft, Calendar, Clock, Search, Tag, ArrowRight } from "lucide-react"
+import { Calendar, Clock, Search, Tag, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export default function BlogPage() {
@@ -103,21 +103,7 @@ export default function BlogPage() {
   })
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <ArrowLeft className="w-4 h-4" />
-              <span className="font-medium">Back to Portfolio</span>
-            </Link>
-            <h1 className="text-2xl font-bold">Blog</h1>
-            <div className="w-24" /> {/* Spacer for centering */}
-          </div>
-        </div>
-      </header>
-
+    <>
       <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
@@ -247,6 +233,6 @@ export default function BlogPage() {
           </Card>
         </div>
       </div>
-    </div>
+    </>
   )
 }

@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -118,33 +119,32 @@ const BlogClient = ({ blogPosts }: props) => {
                 ))}
               </div>
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Avatar className="w-6 h-6">
-                    <AvatarImage
-                      src="/me.webp?height=24&width=24"
-                      alt="Pooyan Salmani"
-                    />
-                    <AvatarFallback>PS</AvatarFallback>
-                  </Avatar>
-                  <span className="text-sm text-muted-foreground">
-                    Pooyan Salmani
-                  </span>
-                </div>
-
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  asChild
-                  className="group-hover:text-primary"
-                >
-                  <Link href={`/en/Blog/${encodeURIComponent(post.title)}`}>
-                    Read More
-                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-              </div>
             </CardContent>
+            <CardFooter className="mt-auto flex justify-between">
+              <div className="flex gap-2 items-center">
+                <Avatar className="w-6 h-6">
+                  <AvatarImage
+                    src="/me.webp?height=24&width=24"
+                    alt="Pooyan Salmani"
+                  />
+                  <AvatarFallback>PS</AvatarFallback>
+                </Avatar>
+                <span className="text-sm text-muted-foreground">
+                  Pooyan
+                </span>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                asChild
+                className="group-hover:text-primary"
+              >
+                <Link href={`/en/Blog/${encodeURIComponent(post.title)}`}>
+                  Read More
+                  <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </CardFooter>
           </Card>
         ))}
       </div>

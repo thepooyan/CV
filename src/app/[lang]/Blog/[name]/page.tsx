@@ -8,14 +8,12 @@ import {
   Calendar,
   Clock,
   Tag,
-  MessageCircle,
   ArrowRight,
 } from "lucide-react"
 import Link from "next/link"
 import { db } from "@/db"
 import { blogsTable } from "@/db/schema"
 import { eq } from "drizzle-orm"
-import Bookmark from "@/components/parts/blogDetail/Bookmark"
 import Like from "@/components/parts/blogDetail/Like"
 import Share from "@/components/parts/blogDetail/Share"
 
@@ -51,7 +49,7 @@ const page = async ({params}:props) => {
           <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
           <p className="text-muted-foreground mb-8">The blog post you're looking for doesn't exist.</p>
           <Button asChild>
-            <Link href="/blog">
+            <Link href="/en/Blog">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Blog
             </Link>
@@ -74,7 +72,6 @@ const page = async ({params}:props) => {
             </Link>
 
             <div className="flex items-center gap-2">
-              <Share title={post.title}/>
 
             </div>
           </div>
@@ -113,11 +110,7 @@ const page = async ({params}:props) => {
 
             <div className="flex items-center gap-2">
               <Like/>
-
-              <Button variant="ghost" size="sm" className="gap-2">
-                <MessageCircle className="w-4 h-4" />
-                12
-              </Button>
+              <Share title={post.title}/>
             </div>
           </div>
         </header>
@@ -160,10 +153,10 @@ const page = async ({params}:props) => {
               </p>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" asChild>
-                  <Link href="/">View Portfolio</Link>
+                  <Link href="/en/">View Portfolio</Link>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <Link href="/contact">Get in Touch</Link>
+                  <Link href="/en#contact">Get in Touch</Link>
                 </Button>
               </div>
             </div>

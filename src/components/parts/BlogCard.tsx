@@ -9,12 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { blogsTable } from "@/db/schema";
 import { Button } from "../ui/button";
 import { getBlogPicUrl, getBlogDetailUrl } from "@/lib/utils";
-import DynamicArrow from "../layout/DynamicArrow";
 
 const BlogCard = ({ post, index }: { post: typeof blogsTable.$inferSelect, index: number }) => {
   return (

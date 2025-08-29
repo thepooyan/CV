@@ -1,5 +1,4 @@
 import ThemeToggler from "@/components/parts/ThemeToggler";
-import { Home } from "lucide-react";
 import Link from "next/link";
 
 interface props {
@@ -11,14 +10,9 @@ const layout = async ({ children }: props) => {
       <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50   border-zinc-800">
         <div className="container mx-auto px-4 py-4 ">
           <div className="flex items-center justify-between">
-            <Link
-              href="/en/"
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-            >
-              <Home className="w-4 h-4" />
+            <Link href="/en/Blog" className="cursor-pointer">
+              <h1 className="text-2xl font-bold">My Blog</h1>
             </Link>
-            <h1 className="text-2xl font-bold">Blog</h1>
-
             <ThemeToggler/>
           </div>
         </div>

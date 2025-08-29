@@ -17,7 +17,6 @@ import Like from "@/components/parts/blogDetail/Like"
 import Share from "@/components/parts/blogDetail/Share"
 import RelatedPosts from "@/components/parts/blogDetail/RelatedPosts"
 import { Suspense } from "react"
-import Spinner from "@/components/ui/Spinner"
 import SpinnerCard from "@/components/ui/SpinnerCard"
 
 interface props {
@@ -27,6 +26,7 @@ const page = async ({params}:props) => {
   const {name} = await params
   const decodeName = decodeURIComponent(name)
   let post = (await db.select().from(blogsTable).where(eq(blogsTable.title, decodeName))).at(0)
+
 
   if (!post) {
     return (

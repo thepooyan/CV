@@ -1,8 +1,8 @@
-import SpinnerCard from "@/components/ui/SpinnerCard"
+import BlogDetail from "@/components/skeleton/BlogDetail"
 
 const loading = () => {
   return (
-    <SpinnerCard text="Loading post..."/>
+    <BlogDetail/>
   )
 }
 

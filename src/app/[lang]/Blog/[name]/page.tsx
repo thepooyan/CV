@@ -1,3 +1,4 @@
+"use cache"
 import { Button } from "@/components/ui/button"
 import Markdown from "react-markdown"
 import { Card } from "@/components/ui/card"
@@ -21,6 +22,7 @@ import { Suspense } from "react"
 import SpinnerCard from "@/components/ui/SpinnerCard"
 import { getBlogPicUrl } from "@/lib/utils"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+import { cacheTag } from "next/dist/server/use-cache/cache-tag"
 
 interface props {
   params: Promise<{name: string}>
@@ -28,6 +30,7 @@ interface props {
 const page = async ({params}:props) => {
   const {name} = await params
   const decodeName = decodeURIComponent(name)
+  cacheTag("blogPost", decodeName)
   let post = (await db.select().from(blogsTable).where(eq(blogsTable.title, decodeName))).at(0)
 
   if (!post) {

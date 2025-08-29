@@ -1,18 +1,18 @@
 import { Button } from "@/components/ui/button"
-import {
-  ArrowRight,
-} from "lucide-react"
 import { lang, useTranslate } from "@/lib/translation"
 import Link from "next/link"
 import { db } from "@/db"
 import { blogsTable } from "@/db/schema"
 import BlogCard from "@/components/parts/BlogCard"
 import DynamicArrow from "../DynamicArrow"
+import { cacheTag } from "next/dist/server/use-cache/cache-tag"
 
 interface props {
   lang: lang
 }
 const BlogShowcase = async ({lang}:props) => {
+  "use cache"
+  cacheTag("blogsShowcase")
 
   let blogs = await db.select().from(blogsTable).limit(3)
   const t = useTranslate(lang)

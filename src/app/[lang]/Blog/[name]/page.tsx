@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
@@ -8,7 +8,6 @@ import {
   Calendar,
   Clock,
   Tag,
-  ArrowRight,
 } from "lucide-react"
 import Link from "next/link"
 import { db } from "@/db"
@@ -16,6 +15,7 @@ import { blogsTable } from "@/db/schema"
 import { eq } from "drizzle-orm"
 import Like from "@/components/parts/blogDetail/Like"
 import Share from "@/components/parts/blogDetail/Share"
+import RelatedPosts from "@/components/parts/blogDetail/RelatedPosts"
 
 interface props {
   params: {name: string}
@@ -24,24 +24,6 @@ const page = async ({params}:props) => {
   const {name} = await params
   const decodeName = decodeURIComponent(name)
   let post = (await db.select().from(blogsTable).where(eq(blogsTable.title, decodeName))).at(0)
-
-  const relatedPosts = [
-    {
-      id: "modern-backend-development-nodejs",
-      title: "Modern Backend Development with Node.js",
-      excerpt:
-        "Exploring the latest trends in Node.js development including microservices and serverless architectures.",
-      image: "/placeholder.svg?height=150&width=250&text=Node.js+Development",
-    },
-    {
-      id: "database-design-patterns",
-      title: "Database Design Patterns",
-      excerpt: "Common database design patterns and when to use them in your applications.",
-      image: "/placeholder.svg?height=150&width=250&text=Database+Design",
-    },
-  ]
-
-
 
   if (!post) {
     return (
@@ -59,7 +41,6 @@ const page = async ({params}:props) => {
       </div>
     )
   }
-
 
   return (
     <div className="min-h-screen bg-background">
@@ -144,33 +125,7 @@ const page = async ({params}:props) => {
           </div>
         </Card>
 
-        {/* Related Posts */}
-        <div>
-          <h3 className="text-2xl font-bold mb-6">Related Articles</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {relatedPosts.map((relatedPost) => (
-              <Card key={relatedPost.id} className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <img
-                    src={relatedPost.image || "/placeholder.svg"}
-                    alt={relatedPost.title}
-                    className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <CardContent className="p-4">
-                  <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">{relatedPost.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{relatedPost.excerpt}</p>
-                  <Button variant="ghost" size="sm" asChild className="p-0 h-auto">
-                    <Link href={`/blog/${relatedPost.id}`} className="group-hover:text-primary">
-                      Read More
-                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+        <RelatedPosts tags={post.tags} title={post.title}/>
       </article>
     </div>
   )

@@ -10,19 +10,31 @@ interface p {
   postId: number
   likeCount: number
 }
-const Like = ({postId, likeCount}:p) => {
-  const [likes, setLikes] = useState(likeCount);
+const Like = ({postId, likeCount: initialLikeCount}:p) => {
+  const [likes, setLikes] = useState(initialLikeCount);
   const cookies = useCookies()
   const isLikedCookie = cookies.get("isLiked")
-  const [isLiked, setIsLiked] = useState(isLikedCookie === "true");
+  const initialIsLiked = isLikedCookie === "true"
+  const [isLiked, setIsLiked] = useState(initialIsLiked);
+
+  const calcNewLikeCount = () => {
+    let newLikeValue = !isLiked
+
+    if (!initialIsLiked && newLikeValue) return initialLikeCount + 1
+    if (initialIsLiked && !newLikeValue) return initialLikeCount - 1
+    return initialLikeCount
+  }
 
   const handleLike = async () => {
-    setLikes(isLiked ? likeCount : likeCount + 1);
+    let state = {likeCount: initialLikeCount, isLiked};
+
+    setLikes(calcNewLikeCount());
     setIsLiked(prev => !prev);
+
     let {ok} = await likePostToggle(postId)
     if (!ok) {
-      setLikes(isLiked ? likeCount : likeCount + 1);
-      setIsLiked(prev => !prev);
+      setLikes(state.likeCount);
+      setIsLiked(state.isLiked);
       toast.error("Something went wrong")
     }
   };

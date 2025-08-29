@@ -19,7 +19,6 @@ const Like = ({postId, likeCount: initialLikeCount}:p) => {
   const initialIsLiked = (() => {
     if (isLikedCookie) {
       let a = JSON.parse(isLikedCookie) as string[] | undefined
-      console.log(a)
       return a?.includes(String(postId))
     } return false
   })()

@@ -84,7 +84,7 @@ const page = async ({params}:props) => {
                   })}
                   <Separator orientation="vertical" className="h-4" />
                   <Clock className="w-4 h-4" />
-                  {post.readTime}
+                  {post.readTime} min read
                 </div>
               </div>
             </div>

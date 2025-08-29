@@ -21,7 +21,7 @@ const BlogCard = ({ post, index }: { post: typeof blogsTable.$inferSelect, index
     <Link href={getBlogDetailUrl(post.title)}>
       <Card
         key={post.id}
-        className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer pt-0 "
+        className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer pt-0 ltr"
         style={{ animationDelay: `${index * 100}ms` }}
       >
         <div className="relative overflow-hidden rounded-t-lg">
@@ -43,7 +43,7 @@ const BlogCard = ({ post, index }: { post: typeof blogsTable.$inferSelect, index
           <CardTitle className="group-hover:text-primary transition-colors line-clamp-2">
             {post.title}
           </CardTitle>
-          <CardDescription className="line-clamp-3">
+          <CardDescription className="line-clamp-3 h-10">
             {post.excerpt}
           </CardDescription>
         </CardHeader>
@@ -59,25 +59,15 @@ const BlogCard = ({ post, index }: { post: typeof blogsTable.$inferSelect, index
           </div>
         </CardContent>
         <CardFooter className="mt-auto flex justify-between">
-          <div className="flex gap-2 items-center">
-            <Avatar className="w-6 h-6">
-              <AvatarImage
-                src="/me.webp?height=24&width=24"
-                alt="Pooyan Salmani"
-              />
-              <AvatarFallback>PS</AvatarFallback>
-            </Avatar>
-            <span className="text-sm text-muted-foreground">Pooyan</span>
-          </div>
           <Button
             variant="ghost"
             size="sm"
             asChild
-            className="group-hover:text-primary"
+            className="group-hover:text-primary ml-auto"
           >
             <span>
               Read More
-              <DynamicArrow className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </span>
           </Button>
         </CardFooter>

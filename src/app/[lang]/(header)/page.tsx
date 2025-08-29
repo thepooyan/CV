@@ -4,8 +4,8 @@ import Skills from "@/components/layout/Landing/Skills"
 import Projects from "@/components/layout/Landing/Projects"
 import Contact from "@/components/layout/Landing/Contact"
 import { lang } from "@/lib/translation"
-import BlogShowcase from "@/components/layout/Landing/Blog"
 import { Suspense } from "react"
+import BlogShowcase from "@/components/layout/Landing/BlogShowcase"
 
 interface props {
   params: Promise<{lang: lang}>

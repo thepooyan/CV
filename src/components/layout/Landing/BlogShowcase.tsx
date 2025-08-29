@@ -7,6 +7,7 @@ import Link from "next/link"
 import { db } from "@/db"
 import { blogsTable } from "@/db/schema"
 import BlogCard from "@/components/parts/BlogCard"
+import DynamicArrow from "../DynamicArrow"
 
 interface props {
   lang: lang
@@ -29,7 +30,7 @@ const BlogShowcase = async ({lang}:props) => {
             <Link href={`/en/Blog/`}>
               <Button variant="outline" size="lg">
                 {t("View All Posts", "نمایش همه")}
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <DynamicArrow className="ml-2 w-4 h-4" />
               </Button>
             </Link>
           </div>

@@ -12,6 +12,7 @@ interface p {
 }
 const Like = ({postId, likeCount: initialLikeCount}:p) => {
   const [likes, setLikes] = useState(initialLikeCount);
+  const [pending, setPending] = useState(false)
   const cookies = useCookies()
   const isLikedCookie = cookies.get("isLiked")
   const initialIsLiked = isLikedCookie === "true"
@@ -31,7 +32,9 @@ const Like = ({postId, likeCount: initialLikeCount}:p) => {
     setLikes(calcNewLikeCount());
     setIsLiked(prev => !prev);
 
+    setPending(true)
     let {ok} = await likePostToggle(postId)
+    setPending(false)
     if (!ok) {
       setLikes(state.likeCount);
       setIsLiked(state.isLiked);
@@ -44,6 +47,7 @@ const Like = ({postId, likeCount: initialLikeCount}:p) => {
     size="sm"
     onClick={handleLike}
     className={`gap-2 ${isLiked ? "text-green-500 hover:text-green-400" : ""}`}
+    disabled={pending}
   >
     <ThumbsUp className={`w-4 h-4 ${isLiked ? "fill-current" : ""}`} />
     {likes}

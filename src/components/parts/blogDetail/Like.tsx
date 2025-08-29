@@ -5,6 +5,7 @@ import { likePostToggle } from "@/lib/actions";
 import { ThumbsUp } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { cookieNames } from "@/lib/constants";
 
 interface p {
   postId: number
@@ -14,8 +15,14 @@ const Like = ({postId, likeCount: initialLikeCount}:p) => {
   const [likes, setLikes] = useState(initialLikeCount);
   const [pending, setPending] = useState(false)
   const cookies = useCookies()
-  const isLikedCookie = cookies.get("isLiked")
-  const initialIsLiked = isLikedCookie === "true"
+  const isLikedCookie = cookies.get(cookieNames.likedArticles)
+  const initialIsLiked = (() => {
+    if (isLikedCookie) {
+      let a = JSON.parse(isLikedCookie) as string[] | undefined
+      console.log(a)
+      return a?.includes(String(postId))
+    } return false
+  })()
   const [isLiked, setIsLiked] = useState(initialIsLiked);
 
   const calcNewLikeCount = () => {

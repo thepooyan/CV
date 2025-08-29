@@ -50,3 +50,10 @@ export function respondToVisibility(
   return () => observer.unobserve(element)
 }
 
+export const getBlogPicUrl = (str: string | null) => {
+  return str ?
+    `/blog/${str}`
+    :
+    "/placeholder.svg"
+}
+export const getBlogDetailUrl = (postTitle: string) => `/en/Blog/${encodeURIComponent(postTitle)}`

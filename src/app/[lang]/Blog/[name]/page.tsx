@@ -18,6 +18,7 @@ import Share from "@/components/parts/blogDetail/Share"
 import RelatedPosts from "@/components/parts/blogDetail/RelatedPosts"
 import { Suspense } from "react"
 import SpinnerCard from "@/components/ui/SpinnerCard"
+import { getBlogPicUrl } from "@/lib/utils"
 
 interface props {
   params: Promise<{name: string}>
@@ -82,7 +83,7 @@ const page = async ({params}:props) => {
 
         {/* Featured Image */}
         <div className="mb-8 rounded-lg overflow-hidden">
-          <img src={post.image || "/placeholder.svg"} alt={post.title} className="w-full h-64 md:h-96 object-cover" />
+          <img src={getBlogPicUrl(post.image)} alt={post.title} className="w-full h-64 md:h-96 object-cover" />
         </div>
 
         {/* Article Content */}

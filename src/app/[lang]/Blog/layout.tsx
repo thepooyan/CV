@@ -7,7 +7,7 @@ interface props {
 const layout = async ({ children }: props) => {
   return (
     <>
-      <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50   border-zinc-800">
+      <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50   dark:border-zinc-800 border-zinc-300">
         <div className="container mx-auto px-4 py-4 ">
           <div className="flex items-center justify-between">
             <Link href="/en/Blog" className="cursor-pointer">

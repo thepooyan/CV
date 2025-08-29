@@ -128,7 +128,7 @@ const page = async ({params}:props) => {
               <AvatarFallback>PS</AvatarFallback>
             </Avatar>
             <div>
-              <h3 className="font-semibold text-lg mb-2">About Pooyan</h3>
+              <h3 className="font-semibold text-lg mb-2">About Me</h3>
               <p className="text-muted-foreground mb-3">
                 Full-stack developer with 5+ years of experience building scalable web applications. Passionate about
                 React, Node.js, and modern web technologies.

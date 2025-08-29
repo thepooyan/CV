@@ -24,7 +24,7 @@ export default function QuickMessage({lang}:{lang: lang}) {
     if (!msg) return setMessage({ ok: false, msg: "Please enter the message", msgFa: "لطفاً پیام خود را وارد کنید" })
     setWaiting(true)
     let res = await sendMessage(name, email, msg)
-    if (res.ok) toast.success(t("Thanks for your feedback!", "از پیام شما متشکریم!"), {richColors:true})
+    if (res.ok) toast.success(t("Thanks for your feedback!", "از پیام شما متشکریم!"))
     setMessage(res)
     setWaiting(false)
   }

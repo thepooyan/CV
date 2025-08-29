@@ -47,7 +47,7 @@ const Like = ({postId, likeCount: initialLikeCount}:p) => {
       toast.error("Something went wrong while submitting your like, please try again later")
     } else {
       if (!isLiked)
-      toast.success("Thanks for your like!!", {richColors: true})
+      toast.success("Thanks for your like!!")
     }
   };
 

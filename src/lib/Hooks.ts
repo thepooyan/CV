@@ -7,7 +7,7 @@ export const useScroller = (to: string) => {
   let element: Element | null = null;
   useEffect(() => {
     element = document.querySelector(to);
-    if (!element) return undefined
+    if (!element) throw new Error(`useScroller: Element not found: ${to}`)
     respondToVisibility(
       element,
       () => setIsSeen(true),

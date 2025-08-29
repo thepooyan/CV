@@ -45,6 +45,9 @@ const Like = ({postId, likeCount: initialLikeCount}:p) => {
       setLikes(state.likeCount);
       setIsLiked(state.isLiked);
       toast.error("Something went wrong while submitting your like, please try again later")
+    } else {
+      if (!isLiked)
+      toast.success("Thanks for your like!!", {richColors: true})
     }
   };
 

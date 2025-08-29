@@ -20,7 +20,7 @@ import { Suspense } from "react"
 import SpinnerCard from "@/components/ui/SpinnerCard"
 
 interface props {
-  params: {name: string}
+  params: Promise<{name: string}>
 }
 const page = async ({params}:props) => {
   const {name} = await params

@@ -8,7 +8,7 @@ import { eq, sql } from "drizzle-orm"
 import { cookies } from "next/headers"
 import { cookieNames } from "./constants"
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies"
-import { get } from "http"
+import { revalidateTag } from "next/cache"
 
 export async function sendMessage(name: string, email: string, msg: string) {
 
@@ -42,6 +42,7 @@ export const likePostToggle = async (postId: number) => {
       await db.update(blogsTable).set({likeCount: sql`${blogsTable.likeCount}+1`}).where(eq(blogsTable.id, postId))
       add(String(postId))
     }
+    revalidateTag("blogPost")
     return {ok: true}
   } catch(_) {
     return {ok: false}

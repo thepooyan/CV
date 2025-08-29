@@ -1,7 +1,7 @@
 import BlogFetcher from "@/components/parts/BlogFetcher"
+import Blogs from "@/components/skeleton/Blogs"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import SpinnerCard from "@/components/ui/SpinnerCard"
 import { Suspense } from "react"
 
 export default async function BlogPage() {
@@ -17,7 +17,7 @@ export default async function BlogPage() {
             Thoughts, tutorials, and insights about web development, programming, and technology.
           </p>
         </div>
-        <Suspense fallback={<SpinnerCard text="Fetching blog posts..."/>}>
+        <Suspense fallback={<Blogs/>}>
           <BlogFetcher/>
         </Suspense>
 

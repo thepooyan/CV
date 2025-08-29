@@ -5,6 +5,7 @@ import { Card } from "../ui/card"
 import { sendMessage } from "@/lib/actions"
 import { cn } from "@/lib/utils"
 import { lang, useTranslate } from "@/lib/translation"
+import { toast } from "sonner"
 
 type Event = { ok: boolean; msg: string, msgFa: string }
 
@@ -23,6 +24,7 @@ export default function QuickMessage({lang}:{lang: lang}) {
     if (!msg) return setMessage({ ok: false, msg: "Please enter the message", msgFa: "لطفاً پیام خود را وارد کنید" })
     setWaiting(true)
     let res = await sendMessage(name, email, msg)
+    if (res.ok) toast.success(t("Thanks for your feedback!", "از پیام شما متشکریم!"), {richColors:true})
     setMessage(res)
     setWaiting(false)
   }

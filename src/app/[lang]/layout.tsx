@@ -6,6 +6,7 @@ import { STATIC } from "@/lib/static"
 import { GoogleTagManager } from '@next/third-parties/google'
 import { getFullName } from "@/lib/utils"
 import { redirect } from "next/navigation"
+import { Toaster } from "sonner"
 
 const inter = Inter({ subsets: ["latin"] })
 const vazir = Vazirmatn({ subsets: ["arabic"] })
@@ -31,6 +32,7 @@ export default async function RootLayout({ children, params }: { children: React
       <body className={getFont(lang).className}>
         <div className="min-h-screen bg-background">
           {children}
+          <Toaster/>
         </div>
       </body>
       <GoogleTagManager gtmId="GTM-KS6XFX2S" />

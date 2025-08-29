@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import { useState } from "react";
+import { toast } from "sonner";
 
 const Share = ({ title }: { title: string }) => {
   const [showShareMenu, setShowShareMenu] = useState(false);
@@ -25,7 +26,7 @@ const Share = ({ title }: { title: string }) => {
 
     if (platform === "copy") {
       navigator.clipboard.writeText(url);
-      // You could show a toast notification here
+      toast.success("Copied successfully!", {richColors: true})
     } else {
       window.open(shareUrls(url)[platform], "_blank", "width=600,height=400");
     }

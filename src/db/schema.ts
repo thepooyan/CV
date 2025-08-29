@@ -1,4 +1,4 @@
-import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { int, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const messagesTable = sqliteTable("messages", {
   id: int().primaryKey({ autoIncrement: true }),
@@ -21,4 +21,5 @@ export const blogsTable = sqliteTable("blogs_table", {
   readTime: int().notNull(),
   image: text(),
   tags: text({ mode: "json" }).$type<string[]>(),
+  likeCount: integer().default(0)
 })

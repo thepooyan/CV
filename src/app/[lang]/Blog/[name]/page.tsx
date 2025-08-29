@@ -21,7 +21,8 @@ interface props {
   params: {name: string}
 }
 const page = async ({params}:props) => {
-  const decodeName = decodeURIComponent(params.name)
+  const {name} = await params
+  const decodeName = decodeURIComponent(name)
   let post = (await db.select().from(blogsTable).where(eq(blogsTable.title, decodeName))).at(0)
 
   const relatedPosts = [
@@ -62,30 +63,10 @@ const page = async ({params}:props) => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/blog" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <ArrowLeft className="w-4 h-4" />
-              <span className="font-medium">Back to Blog</span>
-            </Link>
-
-            <div className="flex items-center gap-2">
-
-            </div>
-          </div>
-        </div>
-      </header>
-
       <article className="container mx-auto px-4 py-8 max-w-4xl">
-        {/* Article Header */}
         <header className="mb-8">
-
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">{post.title}</h1>
-
           <p className="text-xl text-muted-foreground mb-6 leading-relaxed">{post.excerpt}</p>
-
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-4">
               <Avatar className="w-12 h-12">

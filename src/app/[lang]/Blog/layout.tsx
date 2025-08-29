@@ -5,7 +5,7 @@ import Link from "next/link";
 interface props {
   children: React.ReactNode;
 }
-const layout = ({ children }: props) => {
+const layout = async ({ children }: props) => {
   return (
     <>
       <header className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50   border-zinc-800">
@@ -18,7 +18,7 @@ const layout = ({ children }: props) => {
               <ArrowLeft className="w-4 h-4" />
               <span className="font-medium">Back to Portfolio</span>
             </Link>
-            <h1 className="text-2xl font-bold">Blog</h1>
+
             <ThemeToggler/>
           </div>
         </div>

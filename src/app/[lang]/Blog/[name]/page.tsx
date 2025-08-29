@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Markdown from "react-markdown"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -27,7 +28,6 @@ const page = async ({params}:props) => {
   const {name} = await params
   const decodeName = decodeURIComponent(name)
   let post = (await db.select().from(blogsTable).where(eq(blogsTable.title, decodeName))).at(0)
-
 
   if (!post) {
     return (
@@ -87,8 +87,8 @@ const page = async ({params}:props) => {
         </div>
 
         {/* Article Content */}
-        <div className="prose prose-lg max-w-none mb-8">
-          <div className="whitespace-pre-wrap leading-relaxed">{post.content}</div>
+        <div className="mb-8">
+          {post.content}
         </div>
 
         {/* Tags */}

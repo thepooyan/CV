@@ -16,6 +16,9 @@ import { eq } from "drizzle-orm"
 import Like from "@/components/parts/blogDetail/Like"
 import Share from "@/components/parts/blogDetail/Share"
 import RelatedPosts from "@/components/parts/blogDetail/RelatedPosts"
+import { Suspense } from "react"
+import Spinner from "@/components/ui/Spinner"
+import SpinnerCard from "@/components/ui/SpinnerCard"
 
 interface props {
   params: {name: string}
@@ -125,7 +128,9 @@ const page = async ({params}:props) => {
           </div>
         </Card>
 
-        <RelatedPosts tags={post.tags} title={post.title}/>
+        <Suspense fallback={<SpinnerCard text="Loading related articles..."/>}>
+          <RelatedPosts tags={post.tags} title={post.title}/>
+        </Suspense>
       </article>
     </div>
   )

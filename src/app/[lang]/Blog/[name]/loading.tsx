@@ -1,6 +1,8 @@
+import SpinnerCard from "@/components/ui/SpinnerCard"
+
 const loading = () => {
   return (
-    <div>loading post...</div>
+    <SpinnerCard text="Loading post..."/>
   )
 }
 

@@ -7,6 +7,7 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import { getFullName } from "@/lib/utils"
 import { redirect } from "next/navigation"
 import { Toaster } from "sonner"
+import { CookiesProvider } from "next-client-cookies/server"
 
 const inter = Inter({ subsets: ["latin"] })
 const vazir = Vazirmatn({ subsets: ["arabic"] })
@@ -31,8 +32,10 @@ export default async function RootLayout({ children, params }: { children: React
     <html lang={lang} className="dark">
       <body className={getFont(lang).className}>
         <div className="min-h-screen bg-background">
-          {children}
-          <Toaster/>
+          <CookiesProvider>
+            {children}
+            <Toaster/>
+          </CookiesProvider>
         </div>
       </body>
       <GoogleTagManager gtmId="GTM-KS6XFX2S" />

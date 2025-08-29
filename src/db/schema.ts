@@ -21,5 +21,5 @@ export const blogsTable = sqliteTable("blogs_table", {
   readTime: int().notNull(),
   image: text(),
   tags: text({ mode: "json" }).$type<string[]>(),
-  likeCount: integer().default(0)
+  likeCount: integer().default(0).notNull()
 })

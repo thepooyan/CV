@@ -90,7 +90,7 @@ const page = async ({params}:props) => {
             </div>
 
             <div className="flex items-center gap-2">
-              <Like/>
+              <Like postId={post.id} likeCount={post.likeCount}/>
               <Share title={post.title}/>
             </div>
           </div>

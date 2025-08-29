@@ -74,7 +74,6 @@ const page = async ({params}:props) => {
             </Link>
 
             <div className="flex items-center gap-2">
-              <Bookmark/>
               <Share title={post.title}/>
 
             </div>
@@ -85,12 +84,6 @@ const page = async ({params}:props) => {
       <article className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Article Header */}
         <header className="mb-8">
-          <div className="mb-4">
-            {post.tags?.map(t => <Badge variant="secondary" className="mb-4" key={t}>
-              {t}
-            </Badge>
-            )}
-          </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">{post.title}</h1>
 

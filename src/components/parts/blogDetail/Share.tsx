@@ -12,21 +12,22 @@ import { useState } from "react";
 
 const Share = ({ title }: { title: string }) => {
   const [showShareMenu, setShowShareMenu] = useState(false);
-  const handleShare = (platform: string) => {
+
+  const shareUrls = (url:string) => ({
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+    copy: url,
+  });
+  const handleShare = (platform: keyof ReturnType<typeof shareUrls>) => {
     const url = window.location.href;
 
-    const shareUrls = {
-      twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-      copy: url,
-    };
 
     if (platform === "copy") {
       navigator.clipboard.writeText(url);
       // You could show a toast notification here
     } else {
-      window.open(shareUrls[platform], "_blank", "width=600,height=400");
+      window.open(shareUrls(url)[platform], "_blank", "width=600,height=400");
     }
 
     setShowShareMenu(false);

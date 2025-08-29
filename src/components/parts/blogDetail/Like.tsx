@@ -14,7 +14,7 @@ const Like = () => {
     variant="ghost"
     size="sm"
     onClick={handleLike}
-    className={`gap-2 ${isLiked ? "text-red-500" : ""}`}
+    className={`gap-2 ${isLiked ? "text-green-500 hover:text-green-400" : ""}`}
   >
     <ThumbsUp className={`w-4 h-4 ${isLiked ? "fill-current" : ""}`} />
     {likes}

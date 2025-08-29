@@ -112,10 +112,12 @@ const page = async ({params}:props) => {
           <h3 className="font-semibold mb-3">Tags</h3>
           <div className="flex flex-wrap gap-2">
             {post.tags?.map((tag) => (
-              <Badge key={tag} variant="outline" className="gap-1">
-                <Tag className="w-3 h-3" />
-                {tag}
-              </Badge>
+              <Link href={`/en/Blog?tag=${tag}`} key={tag} className="hover:-translate-y-1 transition-transform">
+                <Badge variant="secondary" className="gap-1">
+                  <Tag className="w-3 h-3" />
+                  {tag}
+                </Badge>
+              </Link>
             ))}
           </div>
         </div>

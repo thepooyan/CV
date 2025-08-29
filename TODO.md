@@ -1,3 +1,6 @@
 save lightmode cookie
 cache
-photo for blog
+blog live editor
+fix md
+
+seprate the tags from blogs data => cache them differently 

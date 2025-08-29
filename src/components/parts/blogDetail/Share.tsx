@@ -1,8 +1,16 @@
 "use client";
+import { Button } from "@/components/ui/button";
+import {
+  Share2,
+  Copy,
+  Twitter,
+  Linkedin,
+  Facebook,
+} from "lucide-react";
 
 import { useState } from "react";
 
-const Share = ({title}:{title: string}) => {
+const Share = ({ title }: { title: string }) => {
   const [showShareMenu, setShowShareMenu] = useState(false);
   const handleShare = (platform: string) => {
     const url = window.location.href;
@@ -24,7 +32,60 @@ const Share = ({title}:{title: string}) => {
     setShowShareMenu(false);
   };
 
-  return <div>Share</div>;
+  return (
+    <>
+      <div className="relative">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setShowShareMenu(!showShareMenu)}
+        >
+          <Share2 className="w-4 h-4" />
+        </Button>
+
+        {showShareMenu && (
+          <div className="absolute right-0 top-full mt-2 bg-background border rounded-md shadow-lg p-2 min-w-[150px]">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => handleShare("twitter")}
+            >
+              <Twitter className="w-4 h-4 mr-2" />
+              Twitter
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => handleShare("linkedin")}
+            >
+              <Linkedin className="w-4 h-4 mr-2" />
+              LinkedIn
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => handleShare("facebook")}
+            >
+              <Facebook className="w-4 h-4 mr-2" />
+              Facebook
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => handleShare("copy")}
+            >
+              <Copy className="w-4 h-4 mr-2" />
+              Copy Link
+            </Button>
+          </div>
+        )}
+      </div>
+    </>
+  );
 };
 
 export default Share;

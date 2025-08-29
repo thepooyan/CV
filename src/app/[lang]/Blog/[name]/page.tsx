@@ -8,15 +8,8 @@ import {
   Calendar,
   Clock,
   Tag,
-  Share2,
-  BookmarkPlus,
-  ThumbsUp,
   MessageCircle,
   ArrowRight,
-  Copy,
-  Twitter,
-  Linkedin,
-  Facebook,
 } from "lucide-react"
 import Link from "next/link"
 import { db } from "@/db"
@@ -24,6 +17,7 @@ import { blogsTable } from "@/db/schema"
 import { eq } from "drizzle-orm"
 import Bookmark from "@/components/parts/blogDetail/Bookmark"
 import Like from "@/components/parts/blogDetail/Like"
+import Share from "@/components/parts/blogDetail/Share"
 
 interface props {
   params: {name: string}
@@ -81,53 +75,8 @@ const page = async ({params}:props) => {
 
             <div className="flex items-center gap-2">
               <Bookmark/>
+              <Share title={post.title}/>
 
-              <div className="relative">
-                <Button variant="ghost" size="sm" onClick={() => setShowShareMenu(!showShareMenu)}>
-                  <Share2 className="w-4 h-4" />
-                </Button>
-
-                {showShareMenu && (
-                  <div className="absolute right-0 top-full mt-2 bg-background border rounded-md shadow-lg p-2 min-w-[150px]">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full justify-start"
-                      onClick={() => handleShare("twitter")}
-                    >
-                      <Twitter className="w-4 h-4 mr-2" />
-                      Twitter
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full justify-start"
-                      onClick={() => handleShare("linkedin")}
-                    >
-                      <Linkedin className="w-4 h-4 mr-2" />
-                      LinkedIn
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full justify-start"
-                      onClick={() => handleShare("facebook")}
-                    >
-                      <Facebook className="w-4 h-4 mr-2" />
-                      Facebook
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full justify-start"
-                      onClick={() => handleShare("copy")}
-                    >
-                      <Copy className="w-4 h-4 mr-2" />
-                      Copy Link
-                    </Button>
-                  </div>
-                )}
-              </div>
             </div>
           </div>
         </div>
@@ -137,9 +86,10 @@ const page = async ({params}:props) => {
         {/* Article Header */}
         <header className="mb-8">
           <div className="mb-4">
-            <Badge variant="secondary" className="mb-4">
-              {post.category}
+            {post.tags?.map(t => <Badge variant="secondary" className="mb-4" key={t}>
+              {t}
             </Badge>
+            )}
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">{post.title}</h1>
@@ -149,8 +99,8 @@ const page = async ({params}:props) => {
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-4">
               <Avatar className="w-12 h-12">
-                <AvatarImage src="/placeholder.svg?height=48&width=48" alt={post.author} />
-                <AvatarFallback>JD</AvatarFallback>
+                <AvatarImage src="/me.webp?height=48&width=48" alt="pooyan salmani" />
+                <AvatarFallback>PS</AvatarFallback>
               </Avatar>
               <div>
                 <div className="font-medium">Pooyan</div>
@@ -193,7 +143,7 @@ const page = async ({params}:props) => {
         <div className="mb-8">
           <h3 className="font-semibold mb-3">Tags</h3>
           <div className="flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
+            {post.tags?.map((tag) => (
               <Badge key={tag} variant="outline" className="gap-1">
                 <Tag className="w-3 h-3" />
                 {tag}
@@ -206,11 +156,11 @@ const page = async ({params}:props) => {
         <Card className="mb-8 p-6">
           <div className="flex items-start gap-4">
             <Avatar className="w-16 h-16">
-              <AvatarImage src="/placeholder.svg?height=64&width=64" alt={post.author} />
-              <AvatarFallback>JD</AvatarFallback>
+              <AvatarImage src="/me.webp?height=64&width=64" alt="pooyan salmani" />
+              <AvatarFallback>PS</AvatarFallback>
             </Avatar>
             <div>
-              <h3 className="font-semibold text-lg mb-2">About {post.author}</h3>
+              <h3 className="font-semibold text-lg mb-2">About Pooyan</h3>
               <p className="text-muted-foreground mb-3">
                 Full-stack developer with 5+ years of experience building scalable web applications. Passionate about
                 React, Node.js, and modern web technologies.

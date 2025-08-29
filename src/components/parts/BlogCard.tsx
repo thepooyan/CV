@@ -20,7 +20,7 @@ const BlogCard = ({ post, index }: { post: typeof blogsTable.$inferSelect, index
     <Link href={getBlogDetailUrl(post.title)}>
       <Card
         key={post.id}
-        className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer pt-0"
+        className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer pt-0 "
         style={{ animationDelay: `${index * 100}ms` }}
       >
         <div className="relative overflow-hidden rounded-t-lg">

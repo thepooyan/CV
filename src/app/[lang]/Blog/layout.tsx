@@ -1,5 +1,5 @@
 import ThemeToggler from "@/components/parts/ThemeToggler";
-import { ArrowLeft } from "lucide-react";
+import { Home } from "lucide-react";
 import Link from "next/link";
 
 interface props {
@@ -12,12 +12,12 @@ const layout = async ({ children }: props) => {
         <div className="container mx-auto px-4 py-4 ">
           <div className="flex items-center justify-between">
             <Link
-              href="/en/Blog"
+              href="/en/"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="font-medium">Back to Blog</span>
+              <Home className="w-4 h-4" />
             </Link>
+            <h1 className="text-2xl font-bold">Blog</h1>
 
             <ThemeToggler/>
           </div>

@@ -14,6 +14,7 @@ import { Separator } from "@/components/ui/separator";
 import { blogsTable } from "@/db/schema";
 import { Button } from "../ui/button";
 import { getBlogPicUrl, getBlogDetailUrl } from "@/lib/utils";
+import DynamicArrow from "../layout/DynamicArrow";
 
 const BlogCard = ({ post, index }: { post: typeof blogsTable.$inferSelect, index: number }) => {
   return (
@@ -76,7 +77,7 @@ const BlogCard = ({ post, index }: { post: typeof blogsTable.$inferSelect, index
           >
             <span>
               Read More
-              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <DynamicArrow className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </span>
           </Button>
         </CardFooter>

@@ -1,4 +1,4 @@
-fix md
+add getup
 fix loadings in mobile
 make breadcrumb visible when loading
 make more things visible when loading

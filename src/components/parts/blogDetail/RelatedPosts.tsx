@@ -1,7 +1,5 @@
-import { db } from "@/db";
-import { blogsTable } from "@/db/schema";
-import { and, eq, not, sql } from "drizzle-orm";
 import BlogCard from "../BlogCard";
+import { getRelatedPosts } from "@/lib/cache";
 
 interface p {
   tags: string[] | null;
@@ -10,20 +8,7 @@ interface p {
 const RelatedPosts = async ({ tags, title }: p) => {
   if (!tags) return <>No Related Articles found.</>;
 
-  let relatedPosts = await db.select()
-    .from(blogsTable)
-    .limit(2).where(
-      and(
-        sql`
-          EXISTS (
-            SELECT 1
-            FROM json_each(${blogsTable.tags})
-            WHERE value IN (${sql.join(tags, sql`, `)})
-          )
-        `,
-        not(eq(blogsTable.title, title))
-      )
-    )
+  let relatedPosts = await getRelatedPosts(tags, title)
 
   return (
     <div>

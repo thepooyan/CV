@@ -1,4 +1,5 @@
 fix md
+fix loadings in mobile
 make breadcrumb visible when loading
 make more things visible when loading
 encode search bar in url

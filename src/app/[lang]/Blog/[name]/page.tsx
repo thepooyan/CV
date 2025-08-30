@@ -101,7 +101,7 @@ const page = async ({params}:props) => {
         </div>
 
         {/* Article Content */}
-        <article className="mb-8 prose lg:prose-xl">
+        <article className="mb-8 prose">
           <Markdown>
             {post.content}
           </Markdown>

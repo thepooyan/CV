@@ -2,6 +2,7 @@ import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { STATIC } from "./static"
 import { lang, useTranslate } from "./translation"
+import { setThemeCookie } from "./actions"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -10,10 +11,13 @@ export function cn(...inputs: ClassValue[]) {
 export const toggleDarkMode = () => {
   if (!document) throw new Error("toggleDarkMode called in a server component")
   const isDark = document.documentElement.classList.contains("dark")
-  if (isDark)
-  document.documentElement.classList.remove("dark")
-    else
-  document.documentElement.classList.add("dark")
+  if (isDark) {
+    setThemeCookie("light")
+    document.documentElement.classList.remove("dark")
+  } else {
+    document.documentElement.classList.add("dark")
+    setThemeCookie("dark")
+  }
 }
 
 export const getDynamicName = (lang: lang) => {

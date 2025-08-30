@@ -76,3 +76,7 @@ const handleLikedPostsCookie = (cookieStore: ReadonlyRequestCookies) => {
 
   return {add,remove,value,has}
 }
+
+export const setThemeCookie = async (value: string) => {
+  (await cookies()).set('theme', value, { path: '/', maxAge: 60 * 60 * 24 * 365 })
+}

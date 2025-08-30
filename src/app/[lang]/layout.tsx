@@ -8,6 +8,7 @@ import { getFullName } from "@/lib/utils"
 import { redirect } from "next/navigation"
 import { Toaster } from "sonner"
 import { CookiesProvider } from "next-client-cookies/server"
+import { cookies } from "next/headers"
 
 const inter = Inter({ subsets: ["latin"] })
 const vazir = Vazirmatn({ subsets: ["arabic"] })
@@ -27,9 +28,11 @@ export default async function RootLayout({ children, params }: { children: React
 
   const {lang} = await params
   if (lang !== "en" && lang !== "fa") redirect("/")
+  let cookieStore = await cookies()
+  const theme = cookieStore.get("theme")?.value || "dark"
 
   return (
-    <html lang={lang} className="dark">
+    <html lang={lang} className={theme}>
       <body className={getFont(lang).className}>
         <div className="min-h-screen bg-background">
           <CookiesProvider>

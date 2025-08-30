@@ -1,4 +1,3 @@
-save lightmode cookie
 fix md
 make breadcrumb visible when loading
 make more things visible when loading

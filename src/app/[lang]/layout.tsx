@@ -9,6 +9,7 @@ import { redirect } from "next/navigation"
 import { Toaster } from "sonner"
 import { CookiesProvider } from "next-client-cookies/server"
 import { cookies } from "next/headers"
+import ScrollToTop from "@/components/parts/ScrollToTop"
 
 const inter = Inter({ subsets: ["latin"] })
 const vazir = Vazirmatn({ subsets: ["arabic"] })
@@ -33,6 +34,7 @@ export default async function RootLayout({ children, params }: { children: React
 
   return (
     <html lang={lang} className={theme}>
+      <ScrollToTop/>
       <body className={getFont(lang).className}>
         <div className="min-h-screen bg-background">
           <CookiesProvider>

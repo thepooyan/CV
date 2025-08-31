@@ -26,9 +26,8 @@ interface props {
 const page = async ({params}:props) => {
   const {name} = await params
   const decodeName = decodeURIComponent(name)
-
-  throw new Error("ksk")
   let post = await getBlogDetail(decodeName)
+
   if (!post) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">

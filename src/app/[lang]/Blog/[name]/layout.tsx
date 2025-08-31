@@ -10,7 +10,7 @@ const layout = async ({children, params}:p) => {
   const decodeName = decodeURIComponent(name)
   return (
     <>
-      <Breadcrumb className="mb-5">
+      <Breadcrumb className=" container mx-auto px-4 py-8 max-w-4xl pb-0">
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink href="/en">Portfolio</BreadcrumbLink>

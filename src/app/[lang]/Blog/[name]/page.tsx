@@ -19,6 +19,7 @@ import SpinnerCard from "@/components/ui/SpinnerCard"
 import { getBlogPicUrl } from "@/lib/utils"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { getBlogDetail } from "@/lib/cache"
+import Getup from "@/components/ui/Getup"
 
 interface props {
   params: Promise<{name: string}>
@@ -47,6 +48,7 @@ const page = async ({params}:props) => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Getup/>
       <article className="container mx-auto px-4 py-8 max-w-4xl">
         <header className="mb-8">
           <Breadcrumb className="mb-5">

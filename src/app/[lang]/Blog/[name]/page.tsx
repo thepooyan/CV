@@ -17,7 +17,6 @@ import RelatedPosts from "@/components/parts/blogDetail/RelatedPosts"
 import { Suspense } from "react"
 import SpinnerCard from "@/components/ui/SpinnerCard"
 import { getBlogPicUrl } from "@/lib/utils"
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { getBlogDetail } from "@/lib/cache"
 import Getup from "@/components/ui/Getup"
 
@@ -27,8 +26,9 @@ interface props {
 const page = async ({params}:props) => {
   const {name} = await params
   const decodeName = decodeURIComponent(name)
-  let post = await getBlogDetail(decodeName)
 
+  throw new Error("ksk")
+  let post = await getBlogDetail(decodeName)
   if (!post) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -51,21 +51,6 @@ const page = async ({params}:props) => {
       <Getup/>
       <article className="container mx-auto px-4 py-8 max-w-4xl">
         <header className="mb-8">
-          <Breadcrumb className="mb-5">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/en">Portfolio</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/en/Blog">Blog</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{post.title}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">{post.title}</h1>
           <p className="text-xl text-muted-foreground mb-6 leading-relaxed">{post.excerpt}</p>
           <div className="flex items-center justify-between flex-wrap gap-4">

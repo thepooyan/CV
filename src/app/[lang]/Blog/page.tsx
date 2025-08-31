@@ -7,8 +7,7 @@ import { Suspense } from "react"
 export default async function BlogPage() {
   return (
     <>
-      <div className="container mx-auto px-4 py-8">
-        <Breadcrumb className="mb-5">
+        <Breadcrumb className="container mx-auto px-4 py-8 max-w-4xl pb-0">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/en">Portfolio</BreadcrumbLink>
@@ -19,6 +18,7 @@ export default async function BlogPage() {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
+      <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">

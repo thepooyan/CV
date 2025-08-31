@@ -1,5 +1,6 @@
 "use client";
-import { Calendar, Clock, Search, Tag, ArrowRight } from "lucide-react";
+import { useQueryState } from 'next-usequerystate';
+import { Search } from "lucide-react";
 import { blogsTable } from "@/db/schema";
 import { useState } from "react";
 import { Button } from "../ui/button";
@@ -9,8 +10,12 @@ interface props {
   blogPosts: (typeof blogsTable.$inferSelect)[];
 }
 const BlogClient = ({ blogPosts }: props) => {
-  const [searchTerm, setSearchTerm] = useState("");
   const [selectedTag, setSelectedTag] = useState("All");
+  const [search, setSearch] = useQueryState("search", {defaultValue: ""})
+
+  const changeHandler = (str: string) => {
+    setSearch(str)
+  }
 
   const tags = [
     "All",
@@ -24,8 +29,8 @@ const BlogClient = ({ blogPosts }: props) => {
 
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch =
-      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+      post.title.toLowerCase().includes(search.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(search.toLowerCase())
     const matchTag = 
       post.tags?.includes(selectedTag) || selectedTag === "All"
 
@@ -40,8 +45,8 @@ const BlogClient = ({ blogPosts }: props) => {
           <input
             type="text"
             placeholder="Search articles..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            value={search}
+            onChange={(e) => changeHandler(e.target.value)}
             className="w-full pl-10 pr-4 py-2 border border-input rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>

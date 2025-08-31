@@ -1,8 +1,13 @@
-import BlogDetail from "@/components/skeleton/BlogDetail"
+import { Skeleton } from "@/components/ui/skeleton"
 
 const loading = () => {
   return (
-    <BlogDetail/>
+    <div className="space-y-4 py-10 p-20">
+      <Skeleton className="h-12 w-full"/>
+      <Skeleton className="h-5 w-full mt-8"/>
+      <Skeleton className="h-12 w-full mt-8"/>
+      <Skeleton className="h-90 w-full mt-8"/>
+    </div>
   )
 }
 

@@ -1,6 +1,4 @@
-fix loadings in mobile
-make more things visible when loading
-encode search bar in url
+fix blog showcase loading skelete
 blog live editor
 seprate the tags from blogs data => cache them differently => make search bar and tags visible when loading
 add copy to code blocks

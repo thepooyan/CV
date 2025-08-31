@@ -1,3 +1,5 @@
+fix smart arrow
+add lang to cookie
 fix blog showcase loading skelete
 blog live editor
 seprate the tags from blogs data => cache them differently => make search bar and tags visible when loading

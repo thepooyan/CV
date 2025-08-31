@@ -2,7 +2,6 @@
 import { useQueryState } from 'next-usequerystate';
 import { Search } from "lucide-react";
 import { blogsTable } from "@/db/schema";
-import { useState } from "react";
 import { Button } from "../ui/button";
 import BlogCard from "./BlogCard";
 
@@ -10,7 +9,7 @@ interface props {
   blogPosts: (typeof blogsTable.$inferSelect)[];
 }
 const BlogClient = ({ blogPosts }: props) => {
-  const [selectedTag, setSelectedTag] = useState("All");
+  const [selectedTag, setSelectedTag] = useQueryState("tag", {defaultValue: "All"});
   const [search, setSearch] = useQueryState("search", {defaultValue: ""})
 
   const changeHandler = (str: string) => {

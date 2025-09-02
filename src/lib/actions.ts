@@ -80,3 +80,6 @@ const handleLikedPostsCookie = (cookieStore: ReadonlyRequestCookies) => {
 export const setThemeCookie = async (value: string) => {
   (await cookies()).set('theme', value, { path: '/', maxAge: 60 * 60 * 24 * 365 })
 }
+export const setLangCookie = async (value: string) => {
+  (await cookies()).set('lang', value, { path: '/', maxAge: 60 * 60 * 24 * 365 })
+}

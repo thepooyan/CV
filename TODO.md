@@ -11,3 +11,6 @@ check every fetch => {
     add loading
     add error handling
 }
+
+small paragraph under name 
+default based on ip

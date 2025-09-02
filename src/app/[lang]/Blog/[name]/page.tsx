@@ -123,7 +123,7 @@ const page = async ({params}:props) => {
               </p>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" asChild>
-                  <Link href="/en/">View Portfolio</Link>
+                  <Link href="/">View Portfolio</Link>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
                   <Link href="/en#contact">Get in Touch</Link>

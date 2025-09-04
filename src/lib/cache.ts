@@ -4,22 +4,29 @@ import { blogsTable } from "@/db/schema";
 import { cacheTag } from "next/dist/server/use-cache/cache-tag";
 import { and, eq, not, sql } from "drizzle-orm";
 
+export const keys = {
+  blogs: "blogs",
+  blogPost: "blogPost",
+  relatedPosts: "relatedPosts",
+  blogShowcase: "blogShowcase"
+}
+
 
 export const getAllBlogs = async () => {
   "use cache"
-  cacheTag("blogs")
+  cacheTag(keys.blogs)
   return db.select().from(blogsTable);
 }
 
 export const getBlogDetail = async (blogName: string) => {
   "use cache"
-  cacheTag("blogPost")
+  cacheTag(keys.blogPost)
   return (await db.select().from(blogsTable).where(eq(blogsTable.title, blogName))).at(0)
 }
 
 export const getRelatedPosts = async (tags: string[], title: string) => {
   "use cache"
-  cacheTag("relatedPosts")
+  cacheTag(keys.relatedPosts)
   return db.select()
     .from(blogsTable)
     .limit(2).where(
@@ -38,6 +45,6 @@ export const getRelatedPosts = async (tags: string[], title: string) => {
 
 export const getBlogShowcase = async () => {
   "use cache"
-  cacheTag("blogShowcase")
+  cacheTag(keys.blogShowcase)
   return db.select().from(blogsTable).limit(3)
 }

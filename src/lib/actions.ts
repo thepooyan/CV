@@ -9,6 +9,8 @@ import { cookies } from "next/headers"
 import { cookieNames } from "./constants"
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies"
 import { revalidateTag } from "next/cache"
+import { blogPosts } from "./data"
+import { keys } from "./cache"
 
 export async function sendMessage(name: string, email: string, msg: string) {
 
@@ -82,4 +84,16 @@ export const setThemeCookie = async (value: string) => {
 }
 export const setLangCookie = async (value: string) => {
   (await cookies()).set('lang', value, { path: '/', maxAge: 60 * 60 * 24 * 365 })
+}
+
+export const newPost = async (value: typeof blogsTable.$inferInsert) => {
+  try {
+    await db.insert(blogsTable).values(value)
+    revalidateTag(keys.relatedPosts)
+    revalidateTag(keys.blogs)
+    revalidateTag(keys.blogShowcase)
+    return {ok: true}
+  } catch(_) {
+    return {ok: false}
+  }
 }

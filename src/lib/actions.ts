@@ -1,7 +1,8 @@
 "use server"
 
+import jwt, { JwtPayload, Secret } from 'jsonwebtoken';
 import { db } from "@/db"
-import { blogsTable, messagesTable } from "@/db/schema"
+import { adminsTable, blogsTable, messagesTable } from "@/db/schema"
 import { sendToAdmin } from "./telegram"
 import { formatMessage } from "./utils"
 import { eq, sql } from "drizzle-orm"
@@ -101,6 +102,75 @@ export const newPost = async (value: typeof blogsTable.$inferInsert) => {
 export const authAdmin = async (form: FormData) => {
   const pass = form.get("password")
 
-  if (pass === process.env.ADMIN_PASS) redirect("/en/newBlog")
+  if (pass === process.env.ADMIN_PASS) {
+    let token = await generateToken("admin")
+    await db.update(adminsTable).set({token: token, expiresAt: new Date(Date.now() + 5 * 60 * 1000).toString()});
+    (await cookies()).set('token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/',
+      expires: Date.now() + 5 * 60 * 1000,
+    });
+    redirect("/en/newBlog")
+  }
+
   return {ok: false}
+}
+
+export const generateToken = async (userId: string) => {
+  return jwt.sign({ userId }, process.env.JWT_SECRET!, {
+    expiresIn: '5m',
+  });
+}
+
+
+interface DecodedToken extends JwtPayload {
+  // Add any custom properties you might have in your token payload
+  userId?: string;
+}
+
+interface ValidationResult {
+  isValid: boolean;
+  payload?: DecodedToken;
+  error?: string;
+}
+
+/**
+ * Validates a JWT and returns the decoded payload if successful.
+ * @param token The JWT string to validate.
+ * @returns An object indicating the validation result and the decoded payload or an error message.
+ */
+export async function validateToken(token: string): Promise<ValidationResult> {
+  const jwtSecret: Secret | undefined = process.env.JWT_SECRET;
+
+  // Ensure the secret key is defined in your environment variables
+  if (!jwtSecret) {
+    console.error('JWT_SECRET is not defined.');
+    return { isValid: false, error: 'Server configuration error.' };
+  }
+
+  try {
+    // Verify the token using the secret key
+    const decoded = jwt.verify(token, jwtSecret) as DecodedToken;
+    
+    // Check if the token has expired
+    if (decoded.exp && decoded.exp < Date.now() / 1000) {
+      return { isValid: false, error: 'Token has expired.' };
+    }
+
+    // Token is valid, return the payload
+    return { isValid: true, payload: decoded };
+  } catch (err: any) {
+    // Handle specific JWT errors
+    if (err.name === 'TokenExpiredError') {
+      return { isValid: false, error: 'Token has expired.' };
+    }
+    if (err.name === 'JsonWebTokenError') {
+      return { isValid: false, error: 'Invalid token.' };
+    }
+
+    // Handle any other unknown errors
+    return { isValid: false, error: 'Failed to validate token.' };
+  }
 }

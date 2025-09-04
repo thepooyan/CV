@@ -9,7 +9,9 @@ export const messagesTable = sqliteTable("messages", {
 
 export const adminsTable = sqliteTable("admins_table", {
   id: int().primaryKey({autoIncrement: true}),
-  chat_id: text().notNull()
+  chat_id: text().notNull(),
+  token: text(),
+  expiresAt: text()
 })
 
 export const blogsTable = sqliteTable("blogs_table", {

@@ -61,5 +61,3 @@ export const getBlogPicUrl = (str: string | null) => {
     "/placeholder.svg"
 }
 export const getBlogDetailUrl = (postTitle: string) => `/en/Blog/${encodeURIComponent(postTitle)}`
-
-export const isProd = () => process.env.NODE_ENV === 'production'

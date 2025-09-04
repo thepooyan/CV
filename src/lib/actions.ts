@@ -114,8 +114,6 @@ export const authAdmin = async (form: FormData) => {
     });
     redirect("/en/newBlog")
   }
-
-  return {ok: false}
 }
 
 export const generateToken = async (userId: string) => {

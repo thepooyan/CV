@@ -9,8 +9,8 @@ import { cookies } from "next/headers"
 import { cookieNames } from "./constants"
 import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies"
 import { revalidateTag } from "next/cache"
-import { blogPosts } from "./data"
 import { keys } from "./cache"
+import { redirect } from "next/navigation"
 
 export async function sendMessage(name: string, email: string, msg: string) {
 
@@ -96,4 +96,11 @@ export const newPost = async (value: typeof blogsTable.$inferInsert) => {
   } catch(_) {
     return {ok: false}
   }
+}
+
+export const authAdmin = async (form: FormData) => {
+  const pass = form.get("password")
+
+  if (pass === process.env.ADMIN_PASS) redirect("/en/newBlog")
+  return {ok: false}
 }

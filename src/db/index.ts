@@ -6,6 +6,6 @@ export const db = drizzle({
     url: process.env.TURSO_DATABASE_URL!, 
     authToken: process.env.TURSO_AUTH_TOKEN!
   } : {
-      url: 'file:./local.sqlite',
+      url: process.env.DB_FILE!,
     }
 });

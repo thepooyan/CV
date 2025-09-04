@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pushdb:local": "drizzle-kit push --config drizzle.config.local.ts",
+    "pushdb:prod": "drizzle-kit push --config drizzle.config.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.15.10",

@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code, Database, Globe } from "lucide-react";
 import { lang, useTranslate } from "@/lib/translation";
+import { Button } from "@/components/ui/button";
 
 interface props {
   lang: lang;
@@ -32,6 +33,13 @@ const About = ({ lang }: props) => {
                   "وقتی در حال کدنویسی نباشم، می‌توانید من رو در حال کشف فناوری‌های جدید، مشارکت در پروژه‌های ‌اپن‌سورس یا به اشتراک گذاشتن دانشم از طریق نوشته‌های وبلاگی و فعالیت در جامعه پیدا کنید. "
                 )}
               </p>
+              <div className="flex justify-center my-9">
+                <Button asChild>
+                  <a href="/CV.pdf" className="m-auto" target="_blank">
+                    {t("View my CV", "از روزمه من دیدن کنید")}
+                  </a>
+                </Button>
+              </div>
               <div className="flex flex-wrap gap-4">
                 <Badge variant="secondary" className="px-3 py-1 flex gap-3">
                   <Code className="w-4 h-4 " />

@@ -1,6 +1,6 @@
 import Footer from "@/components/layout/Footer"
 import Navigation from "@/components/layout/Navigation"
-import { useParseLang } from "@/lib/Hooks"
+import { parseLangFromParams } from "@/lib/utils"
 import { ReactNode } from "react"
 
 interface props {
@@ -8,7 +8,9 @@ interface props {
   params: Promise<{lang: string}>
 }
 const layout = async ({children, params}:props) => {
-  const lang = await useParseLang(params)
+
+  const lang = await parseLangFromParams(params)
+
   return (
     <>
       <Navigation lang={lang}/>

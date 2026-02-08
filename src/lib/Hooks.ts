@@ -1,8 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { respondToVisibility } from "./utils";
-import { lang } from "./translation";
-import { redirect } from "next/navigation";
 
 export const useScroller = (to: string) => {
   const [isSeen, setIsSeen] = useState(false);
@@ -26,11 +24,3 @@ export const useScroller = (to: string) => {
     isSeen,
   };
 };
-
-export const useParseLang = async (params: Promise<{lang: string}>):Promise<lang> => {
-
-  const {lang} = await params
-  if (lang !== "en" && lang !== "fa") throw redirect("/")
-
-  return lang
-}

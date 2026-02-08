@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge"
 import { STATIC } from "./static"
 import { lang, useTranslate } from "./translation"
 import { setThemeCookie } from "./actions"
+import { redirect } from "next/navigation"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -61,3 +62,11 @@ export const getBlogPicUrl = (str: string | null) => {
     "/placeholder.svg"
 }
 export const getBlogDetailUrl = (postTitle: string) => `/en/Blog/${encodeURIComponent(postTitle)}`
+
+export const parseLangFromParams = async (params: Promise< {lang: string} >): Promise<lang> => {
+
+  const {lang} = await params
+  if (lang !== "en" && lang !== "fa") throw redirect("/")
+
+  return lang
+}

@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card"
 import {
     Binary,
+  Check,
   Code,
   Database,
   FileQuestion,
@@ -9,6 +10,7 @@ import {
 } from "lucide-react"
 import { skillsData } from "@/lib/data"
 import { lang, useTranslate } from "@/lib/translation"
+import { cn } from "@/lib/utils"
 
 interface props {
   lang: lang
@@ -22,7 +24,7 @@ const Skills = ({lang}:props) => {
           <div className="max-w-3xl mx-auto ltr ">
             <Card className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {Object.entries(skillsData).map(([category, skills], categoryIndex) => (
+                {Object.entries(skillsData).map(([category, skills]) => (
                   <div key={category} className="space-y-3">
                     <h3 className="text-lg font-semibold text-primary flex items-center">
                       {category === "Frontend" && <Code className="w-4 h-4 mr-2" />}
@@ -37,6 +39,11 @@ const Skills = ({lang}:props) => {
                       {skills.map((skill) => (
                         <div key={skill.name} className="flex items-center justify-between text-sm">
                           <span className="font-medium">{skill.name}</span>
+                          <span className={cn("text-sm bg-accent text-accent-foreground p-1 rounded w-17 text-center"
+                          , skill.level === "expert" && "bg-green-100 dark:bg-green-900"
+                        )}>
+                          {skill.level}
+                        </span>
                         </div>
                       ))}
                     </div>

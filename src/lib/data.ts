@@ -1,42 +1,45 @@
 import { project } from "@/components/parts/ProjectCard";
 import { blogCard } from "./interface";
 
+export enum SkillLevel {
+  Beginner = "beginner",
+  Medium = "medium",
+  Expert = "expert",
+}
+
 export const skillsData = {
   Frontend: [
-    { name: "Next.js", level: 97 },
-    { name: "React", level: 95 },
-    { name: "Solid.js", level: 80 },
-    { name: "TypeScript", level: 90 },
+    { name: "React", level: SkillLevel.Expert },
+    { name: "Next.js", level: SkillLevel.Expert },
+    { name: "TypeScript", level: SkillLevel.Expert },
+    { name: "Solid.js", level: SkillLevel.Medium },
+    { name: "Tailwind CSS", level: SkillLevel.Expert },
+    { name: "Zustand", level: SkillLevel.Medium },
+    { name: "Redux Toolkit", level: SkillLevel.Medium },
+    { name: "TanStack Query", level: SkillLevel.Medium },
   ],
-  Styling: [
-    { name: "Tailwind CSS", level: 90 },
-    { name: "shadcn design system", level: 70 },
-    { name: "SASS", level: 95 },
-  ],
-  Backends: [
-    { name: "Express.js", level: 80 },
-    { name: "JAVA spring", level: 70 },
-    { name: "Hono", level: 75 },
-    { name: "Go", level: 50 },
-    { name: "Trpc", level: 50 },
+  Backend: [
+    { name: "Express.js", level: SkillLevel.Medium },
+    { name: "Hono", level: SkillLevel.Medium },
+    { name: "tRPC", level: SkillLevel.Medium },
+    { name: "Go", level: SkillLevel.Beginner },
+    { name: "JAVA Spring", level: SkillLevel.Medium },
+    { name: "Authentication & Authorization", level: SkillLevel.Medium },
   ],
   Database: [
-    { name: "Drizzle", level: 85 },
-    { name: "Sqlite", level: 85 },
-    { name: "Redis", level: 80 },
-    { name: "Mysql", level: 75 },
-    { name: "MongoDB", level: 70 },
+    { name: "Drizzle", level: SkillLevel.Expert },
+    { name: "SQLite", level: SkillLevel.Expert },
+    { name: "PostgreSQL", level: SkillLevel.Medium },
+    { name: "Redis", level: SkillLevel.Medium },
+    { name: "MongoDB", level: SkillLevel.Medium },
   ],
-  "DevOps & Cloud": [
-    { name: "Vercel (or Netlify)", level: 85 },
-    { name: "Turso (or Neon)", level: 85 },
-    { name: "Docker", level: 80 },
-    { name: "GitHub Actions", level: 68 },
-  ],
-  More: [
-    { name: "Git", level: 99 },
-    { name: "Linux", level: 98 },
-    { name: "Figma", level: 20 },
+  Tooling: [
+    { name: "Bun", level: SkillLevel.Expert },
+    { name: "Docker", level: SkillLevel.Medium },
+    { name: "Linux", level: SkillLevel.Expert },
+    { name: "Git", level: SkillLevel.Expert },
+    { name: "GitHub Actions", level: SkillLevel.Medium },
+    { name: "Zod", level: SkillLevel.Expert },
   ],
 };
 

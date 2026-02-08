@@ -45,7 +45,7 @@ export const likePostToggle = async (postId: number) => {
       await db.update(blogsTable).set({likeCount: sql`${blogsTable.likeCount}+1`}).where(eq(blogsTable.id, postId))
       add(String(postId))
     }
-    revalidateTag("blogPost")
+    revalidateTag("blogPost", "max")
     return {ok: true}
   } catch(_) {
     return {ok: false}
@@ -90,9 +90,9 @@ export const setLangCookie = async (value: string) => {
 export const newPost = async (value: typeof blogsTable.$inferInsert) => {
   try {
     await db.insert(blogsTable).values(value)
-    revalidateTag(keys.relatedPosts)
-    revalidateTag(keys.blogs)
-    revalidateTag(keys.blogShowcase)
+    revalidateTag(keys.relatedPosts, "max")
+    revalidateTag(keys.blogs, "max")
+    revalidateTag(keys.blogShowcase, "max")
     return {ok: true}
   } catch(_) {
     return {ok: false}

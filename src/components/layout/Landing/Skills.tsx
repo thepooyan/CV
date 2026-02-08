@@ -1,7 +1,6 @@
 import { Card } from "@/components/ui/card"
 import {
-    Binary,
-  Check,
+  Binary,
   Code,
   Database,
   FileQuestion,
@@ -39,9 +38,10 @@ const Skills = ({lang}:props) => {
                       {skills.map((skill) => (
                         <div key={skill.name} className="flex items-center justify-between text-sm">
                           <span className="font-medium">{skill.name}</span>
-                          <span className={cn("text-sm bg-accent text-accent-foreground p-1 rounded w-17 text-center"
-                          , skill.level === "expert" && "bg-green-100 dark:bg-green-900"
-                        )}>
+                          <span className={cn("text-sm bg-accent text-accent-foreground p-1 rounded w-17 text-center",
+                            skill.level === "expert" && "bg-green-100 dark:bg-green-900",
+                            skill.level === "medium" && "bg-yellow-100 dark:bg-yellow-900",
+                          )}>
                           {skill.level}
                         </span>
                         </div>

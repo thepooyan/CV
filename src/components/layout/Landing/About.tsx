@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Code, Database, Globe } from "lucide-react";
 import { lang, useTranslate } from "@/lib/translation";
 import { Button } from "@/components/ui/button";
+import { cvLink } from "@/lib/data";
 
 interface props {
   lang: lang;
@@ -35,7 +36,7 @@ const About = ({ lang }: props) => {
               </p>
               <div className="flex justify-center my-9">
                 <Button asChild>
-                  <a href="/CV.pdf" className="m-auto" target="_blank">
+                  <a href={cvLink} className="m-auto" target="_blank">
                     {t("View my CV", "از روزمه من دیدن کنید")}
                   </a>
                 </Button>

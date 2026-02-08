@@ -7,6 +7,8 @@ export enum SkillLevel {
   Expert = "expert",
 }
 
+export const cvLink = "https://www.canva.com/design/DAGawu50d3c/3mDOvc-nSvgUwiWPG7qWxg/view?utm_content=DAGawu50d3c&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9654a79862"
+
 export const skillsData = {
   Frontend: [
     { name: "React", level: SkillLevel.Expert },

@@ -34,21 +34,9 @@ const Skills = ({lang}:props) => {
                       {category}
                     </h3>
                     <div className="space-y-2">
-                      {skills.map((skill, index) => (
+                      {skills.map((skill) => (
                         <div key={skill.name} className="flex items-center justify-between text-sm">
                           <span className="font-medium">{skill.name}</span>
-                          <div className="flex items-center gap-2">
-                            <div className="w-12 bg-muted rounded-full h-1.5">
-                              <div
-                                className="bg-gradient-to-r from-primary to-secondary h-1.5 rounded-full transition-all duration-1000 ease-out"
-                                style={{
-                                  width: `${skill.level}%`,
-                                  animationDelay: `${(categoryIndex * skills.length + index) * 30}ms`,
-                                }}
-                              />
-                            </div>
-                            <span className="text-xs text-muted-foreground w-8">{skill.level}%</span>
-                          </div>
                         </div>
                       ))}
                     </div>

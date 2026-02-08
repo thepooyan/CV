@@ -3,17 +3,17 @@ import { blogCard } from "./interface";
 
 export const skillsData = {
   Frontend: [
-    { name: "React", level: 95 },
     { name: "Next.js", level: 97 },
+    { name: "React", level: 95 },
     { name: "Solid.js", level: 80 },
     { name: "TypeScript", level: 90 },
   ],
   Styling: [
-    { name: "SASS", level: 95 },
     { name: "Tailwind CSS", level: 90 },
-    { name: "Styled components", level: 70 },
+    { name: "shadcn design system", level: 70 },
+    { name: "SASS", level: 95 },
   ],
-  Backend: [
+  Backends: [
     { name: "Express.js", level: 80 },
     { name: "JAVA spring", level: 70 },
     { name: "Hono", level: 75 },

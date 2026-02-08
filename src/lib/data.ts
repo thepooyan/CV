@@ -108,15 +108,15 @@ export const projects: project[] = [
   {
     title: "Trusty.sci",
     titleFa: "Trusty.sci",
+    github: "https://github.com/thepooyan/TrustySci",
     description: "Educational article sharing with tons of features",
     descriptionFa: "به اشتراک‌گذاری مقالات آموزشی با امکانات فراوان",
     tech: ["Next.js", "Stripe", "NextUI", "TailwindCSS", ".Net rest api"],
-    link: "https://trustysci.com/",
     importantPages: [
-      { name: "Search", nameFa: "جستجو", url: "/Search?searchKeys=[0,1,2,3,4,5,6,7]&pageNumber=1&searchTerm=sanaat" },
-      { name: "Profile", nameFa: "پروفایل", url: "/user/3/amirhossein-sanaat/submittedManuscripts" },
-      { name: "Discussion", nameFa: "بحث و گفتگو", url: "/Manuscript/2/the-promise-of-artificial-intelligence-and-deep-learning-in-pet-and-spect-imaging" },
-      { name: "User Panel", nameFa: "پنل کاربر", url: "/panel/RegisterReviewer" },
+      // { name: "Search", nameFa: "جستجو", url: "/Search?searchKeys=[0,1,2,3,4,5,6,7]&pageNumber=1&searchTerm=sanaat" },
+      // { name: "Profile", nameFa: "پروفایل", url: "/user/3/amirhossein-sanaat/submittedManuscripts" },
+      // { name: "Discussion", nameFa: "بحث و گفتگو", url: "/Manuscript/2/the-promise-of-artificial-intelligence-and-deep-learning-in-pet-and-spect-imaging" },
+      // { name: "User Panel", nameFa: "پنل کاربر", url: "/panel/RegisterReviewer" },
     ],
     lighthouseScore: { performance: 98, accessibility: 89, bestPractices: 100, seo: 82 },
     features: [
@@ -206,7 +206,6 @@ export const projects: project[] = [
     description: "A Hobby chating website, with Crypto encryption",
     descriptionFa: "یک وب‌سایت سرگرمی چت با رمزگذاری کریپتو",
     tech: ["Solid.js", "Pocketbase", "shadcn", "TailwindCSS", "WebCryptoAPI"],
-    link: "",
     github: "https://github.com/thepooyan/private-room",
     isDemo: true,
     isHobby: true,

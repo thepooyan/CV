@@ -6,6 +6,7 @@ import { Button } from "../ui/button"
 import Link from "next/link"
 import { ChevronDown, Code, Database, ExternalLink, Github, Globe } from "lucide-react"
 import { lang, useTranslate } from "@/lib/translation"
+import { cn } from "@/lib/utils"
 
 export interface project {
   title: string
@@ -13,7 +14,7 @@ export interface project {
   description: string
   descriptionFa: string
   tech: string[]
-  importantPages: {url: string, name: string, nameFa: string}[]
+  importantPages?: {url: string, name: string, nameFa: string}[]
   features: {title: string, description: string,titleFa: string, descriptionFa: string,}[]
   challenges: {title: string, description: string,titleFa: string, descriptionFa: string,}[]
   image: string
@@ -26,7 +27,7 @@ export interface project {
   }
   isDemo?: boolean,
   isHobby?: boolean
-  link: string
+  link?: string
   github?: string
 }
 
@@ -109,18 +110,20 @@ function ProjectCard({ project, lang }:props) {
               </div>
               <div className="flex gap-2">
                 <Button size="sm" asChild className="flex-1">
+                  {project.link &&
                   <Link href={project.link} target="_blank">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     {project.isDemo ?
-                      t("Live Demo", "نمایش پروژه")
+                      t("Live Demo", "نمایش وبسایت")
                       :
                       t("Live Website", "نمایش وبسایت")
                     }
-                  </Link>
+                  </Link>}
                 </Button>
                 {project.github && 
-                <Button size="sm" variant="outline" asChild>
+                <Button size="sm" variant="outline" asChild className={cn(!project.link && "w-full")}>
                   <Link href={project.github} target="_blank">
+                    {!project.link && "نمایش سورس کد"}
                     <Github className="w-4 h-4" />
                   </Link>
                 </Button>}
@@ -132,7 +135,7 @@ function ProjectCard({ project, lang }:props) {
                 disabled={isAnimating}
                 className="w-full group/expand hover:bg-primary/10 transition-all duration-300"
               >
-                <span className="transition-all duration-300 group-hover/expand:scale-105">{t("View Details", "نمایش جزئیات")}</span>
+                <span className="transition-all duration-300 group-hover/expand:scale-105">{t("View Details", "جزئیات")}</span>
                 <ChevronDown className="w-4 h-4 ml-2 transition-all duration-300 group-hover/expand:translate-y-0.5" />
               </Button>
             </div>
@@ -329,6 +332,7 @@ function ProjectCard({ project, lang }:props) {
                   }`}
                   style={{ transitionDelay: isExpanded ? "800ms" : "0ms" }}
                 >
+                  {project.link &&
                   <Link href={project.link} target="_blank" className="flex gap-2">
                     <ExternalLink className="w-4 h-4 " />
                     {project.isDemo ?
@@ -336,7 +340,7 @@ function ProjectCard({ project, lang }:props) {
                       :
                       t("Live Website", "نمایش وبسایت")
                     }
-                  </Link>
+                  </Link>}
                 </Button>
                 <Button
                   size="sm"

@@ -5,17 +5,18 @@ import "@/app/globals.css"
 import { STATIC } from "@/lib/static"
 import { GoogleTagManager } from '@next/third-parties/google'
 import { getFullName } from "@/lib/utils"
-import { redirect } from "next/navigation"
 import { Toaster } from "sonner"
 import { CookiesProvider } from "next-client-cookies/server"
 import { cookies } from "next/headers"
 import ScrollToTop from "@/components/parts/ScrollToTop"
 import AdminEvent from "@/components/event/AdminEvent"
+import { useParseLang } from "@/lib/Hooks"
+import { lang } from "@/lib/translation"
 
 const inter = Inter({ subsets: ["latin"] })
 const vazir = Vazirmatn({ subsets: ["arabic"] })
 
-const getFont = (lang: string) => {
+const getFont = (lang: lang) => {
   if (lang === "fa") return vazir
   return inter
 }
@@ -28,8 +29,8 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children, params }: { children: React.ReactNode, params: Promise<{lang: string}> }) {
 
-  const {lang} = await params
-  if (lang !== "en" && lang !== "fa") redirect("/")
+  const lang = await useParseLang(params)
+
   let cookieStore = await cookies()
   const theme = cookieStore.get("theme")?.value || "dark"
 

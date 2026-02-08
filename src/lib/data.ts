@@ -45,6 +45,86 @@ export const skillsData = {
 
 export const projects: project[] = [
   {
+    title: "Prompt Bazar",
+    titleFa: "پرامپت بازار",
+    description: "AI prompt subscription and marketplace application",
+    descriptionFa: "اپلیکیشن اشتراک و مارکت‌پلیس پرامپت‌های هوش مصنوعی",
+    link: "https://www.promptbazar.ir/",
+    github: "https://github.com/thepooyan/prompt.git",
+    tech: [
+      "Next.js",
+      "TailwindCSS",
+      "AI integration",
+      "Admin dashboard",
+      "Theme switching"
+    ],
+    importantPages: [
+      {
+        name: "Prompt enhancer",
+        nameFa: "بهینه‌ساز پرامپت با هوش مصنوعی",
+        url: "/Tools/prompt-enhancer"
+      },
+      {
+        name: "Blog",
+        nameFa: "بلاگ",
+        url: "/Blog"
+      },
+      {
+        name: "Sample prompt",
+        nameFa: "نمونه پرامپت",
+        url: "/Prompts/seo-content/seo-article-prompt"
+      }
+    ],
+    lighthouseScore: {
+      performance: 97,
+      accessibility: 94,
+      bestPractices: 74,
+      seo: 100
+    },
+    features: [
+      {
+        title: "AI prompt marketplace",
+        titleFa: "مارکت‌پلیس پرامپت هوش مصنوعی",
+        description: "A platform for browsing, subscribing to, and using curated AI prompts across different categories.",
+        descriptionFa: "پلتفرمی برای مشاهده، اشتراک و استفاده از پرامپت‌های هوش مصنوعی در دسته‌بندی‌های مختلف."
+      },
+      {
+        title: "Admin dashboard",
+        titleFa: "داشبورد ادمین",
+        description: "A full-featured admin panel for managing prompts, users, roles, and blog content.",
+        descriptionFa: "پنل مدیریتی کامل برای مدیریت پرامپت‌ها، کاربران، نقش‌ها و محتوای بلاگ."
+      },
+      {
+        title: "Role-based authentication",
+        titleFa: "احراز هویت مبتنی بر نقش",
+        description: "Authentication system with distinct admin and user roles and protected routes.",
+        descriptionFa: "سیستم احراز هویت با نقش‌های مجزا برای ادمین و کاربر و مسیرهای محافظت‌شده."
+      },
+      {
+        title: "AI-powered prompt enhancer",
+        titleFa: "بهینه‌ساز پرامپت با هوش مصنوعی",
+        description: "An AI tool that analyzes and improves user-written prompts for better LLM outputs.",
+        descriptionFa: "ابزار هوش مصنوعی که پرامپت‌های کاربر را تحلیل و برای خروجی بهتر مدل‌های زبانی بهینه می‌کند."
+      },
+      {
+        title: "Theme switching",
+        titleFa: "تغییر تم",
+        description: "Support for light and dark themes to enhance user experience.",
+        descriptionFa: "پشتیبانی از تم روشن و تیره برای بهبود تجربه کاربری."
+      }
+    ],
+    challenges: [
+      {
+        title: "AI integration",
+        titleFa: "اتصال به هوش مصنوعی Gemini در قسمت های مختلف سایت",
+        description: "Designing a system of connection to an AI chat-bot to get responses inside the website for a number of use cases",
+        descriptionFa: "طراحی یک کانکشن به یک هوش مصنوعی چت بات برای تولید پرامپت و نشان دادن نتیجه به کاربر بدون نیاز به ترک وبسایت"
+      }
+    ],
+    image: "/samples/prompt.png"
+  },
+
+  {
     title: "Hooshban",
     titleFa: "هوشبان",
     description: "Full-stack Branding website with AI features",

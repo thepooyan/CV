@@ -14,7 +14,7 @@ export interface project {
   description: string
   descriptionFa: string
   tech: string[]
-  importantPages?: {url: string, name: string, nameFa: string}[]
+  importantPages: {url: string, name: string, nameFa: string}[]
   features: {title: string, description: string,titleFa: string, descriptionFa: string,}[]
   challenges: {title: string, description: string,titleFa: string, descriptionFa: string,}[]
   image: string
@@ -123,7 +123,7 @@ function ProjectCard({ project, lang }:props) {
                 {project.github && 
                 <Button size="sm" variant="outline" asChild className={cn(!project.link && "w-full")}>
                   <Link href={project.github} target="_blank">
-                    {!project.link && "نمایش سورس کد"}
+                    {!project.link && t("Source code", "نمایش سورس کد")}
                     <Github className="w-4 h-4" />
                   </Link>
                 </Button>}
@@ -193,7 +193,7 @@ function ProjectCard({ project, lang }:props) {
                   isExpanded ? "opacity-100 transform translate-x-0" : "opacity-0 transform translate-x-4"
                 }`}
               >
-                <h4 className="font-semibold mb-3 flex items-center flex gap-3">
+                <h4 className="font-semibold mb-3 items-center flex gap-3">
                   <Code
                     className={`w-4 h-4 transition-all duration-500 delay-400 ${
                       isExpanded ? "opacity-100 rotate-0" : "opacity-0 rotate-180"

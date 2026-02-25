@@ -7,7 +7,9 @@ export enum SkillLevel {
   Expert = "expert",
 }
 
-export const cvLink = "https://www.canva.com/design/DAG5u5SLT5A/HNwfT43bFfH0Pq7wzkKYNg/view?utm_content=DAG5u5SLT5A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7f9e2a5fe7"
+// export const cvLink = "https://www.canva.com/design/DAG5u5SLT5A/HNwfT43bFfH0Pq7wzkKYNg/view?utm_content=DAG5u5SLT5A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7f9e2a5fe7"
+
+export const cvLink = "/CV.pdf"
 
 export const skillsData = {
   Frontend: [

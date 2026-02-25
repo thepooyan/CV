@@ -37,7 +37,7 @@ const About = ({ lang }: props) => {
               <div className="flex justify-center my-9">
                 <Button asChild>
                   <a href={cvLink} className="m-auto" target="_blank">
-                    {t("View my CV", "از روزمه من دیدن کنید")}
+                    {t("View my CV", "نمایش رزومه")}
                   </a>
                 </Button>
               </div>
@@ -45,8 +45,8 @@ const About = ({ lang }: props) => {
                 <Badge variant="secondary" className="px-3 py-1 flex gap-3">
                   <Code className="w-4 h-4 " />
                   {t(
-                    "5+ Years Experience",
-                    "بیش از ۵ سال تجربه"
+                    "4+ Years Experience",
+                    "بیش از 4 سال تجربه"
                   )}
                 </Badge>
                 <Badge variant="secondary" className="px-3 py-1 flex gap-3">

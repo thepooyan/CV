@@ -37,6 +37,16 @@ export default async function RootLayout({ children, params }: { children: React
     <html lang={lang} className={theme}>
       <ScrollToTop/>
       <AdminEvent/>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4P7FLERTZV"></script>
+        <script>{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-4P7FLERTZV');
+        `}</script>
+      </head>
       <body className={getFont(lang).className}>
         <div className="min-h-screen bg-background">
           <CookiesProvider>

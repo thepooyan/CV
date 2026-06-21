@@ -55,7 +55,7 @@ export default async function RootLayout({ children, params }: { children: React
           </CookiesProvider>
         </div>
       </body>
-      <GoogleTagManager gtmId="GTM-KS6XFX2S" />
+      {/*<GoogleTagManager gtmId="GTM-KS6XFX2S" />*/}
     </html>
   )
 }
